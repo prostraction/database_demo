@@ -10,9 +10,8 @@ if (isset($_POST['search'])) {
     echo '<ul>';
     while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?>
-        <li onclick='fill("<?php echo $requested_name; ?>","<?php echo $Result['name']; ?>")'>
+        <li onclick='fill("<?php echo $Result['name']; ?>")'>
             <a>
-				<?php echo $requested_name; ?>
                 <?php echo $Result['name']; ?>
             </a>
         </li>
