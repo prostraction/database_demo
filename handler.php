@@ -12,7 +12,7 @@ if (isset($_POST['search_motherboard'])) {
 ?>
         <li onclick='fill("<?php echo 'test'; ?>")'>
             <a>
-                <?php echo $Result['PostedValue']; ?>
+                <?php echo "test2" ?>
             </a>
         </li>
  
