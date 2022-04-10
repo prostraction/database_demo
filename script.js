@@ -9,7 +9,7 @@ $(document).ready(function() {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    value_motherboard: name
+                    search_motherboard: name
                 },
                 success: function(response) {
                     $("#display_motherboard").html(response).show();
