@@ -37,7 +37,7 @@ function display_item(Display, Search, Search_Object) {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
-                data: Search_Object+PostedValue,
+                data: Search_Object+'='+PostedValue,
                 success: function(response) {
                     $(Display).html(response).show();
                 }
