@@ -1,9 +1,9 @@
 <?php
 include "db.php";
 
-if (isset($_POST['search'])) {
-    $name = $_POST['search'];
-	$requested_name = '#search';
+if (isset($_POST['search_motherboard'])) {
+    $name = $_POST['search_motherboard'];
+	$requested_name = '#search_motherboard';
     $Query = "SELECT model FROM cpu WHERE model LIKE '%$name%' LIMIT 5";
  
     $ExecQuery = mysqli_query($connectionDB, $Query);
