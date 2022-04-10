@@ -24,6 +24,6 @@ $(document).ready(function() {
  
 function fill(Key, Value, Display, Search) {
     $(Key).text(Value);
-	$(Search).value('');
+	$(Search).val('');
     $(Display).hide();
 }
