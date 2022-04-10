@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 	$("#search_cpu").keyup(function() {
-		display_item("#display_cpu", '#search_cpu', "search_cpu");
+		display_item("#display_cpu", '#search_cpu');
 	});
 });
  
@@ -28,7 +28,7 @@ function fill(Key, Value, Display, Search) {
     $(Display).hide();
 }
 
-function display_item(Display, Search, Data) {
+function display_item(Display, Search) {
         var PostedValue = $(Search).val();
         if (PostedValue === "") {
             $(Display).html("");
@@ -38,7 +38,7 @@ function display_item(Display, Search, Data) {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    search_cpu: PostedValue
+                    $('Search): PostedValue
                 },
                 success: function(response) {
                     $(Display).html(response).show();
