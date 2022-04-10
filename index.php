@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <title>Конструктор ПК</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -11,17 +11,16 @@
     <form>
 		<p> <label> <span id="value_motherboard"> </span> </label> </p>
         <label> <input type="text" id="search_motherboard" placeholder="Начните вводить..." /> </label>
-    </form>
-	
+    </form>	
 	<!-- Контейнер для результатов поиска -->
     <div id="display_motherboard"></div>
 
-	<p> <b>Процессор (CPU): </b></p>
+	<p><b>	Процессор (CPU): </b></p>
     <form>
-        <label>
-            <input type="text" id="cpu" placeholder="Начните вводить..." />
-        </label>
+        <label> <input type="text" id="search_cpu" placeholder="Начните вводить..." /> </label>
     </form>
+	<!-- Контейнер для результатов поиска -->
+    <div id="display_cpu"></div>
      
 	<p> <b>Кулер процессора (CPU): </b> </p>
     <form>
