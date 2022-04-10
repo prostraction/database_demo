@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#search_motherboard").keyup(function() {
-         var PostedValue = $('#search_motherboard').val();
-         if (PostedValue === "") {
+        var PostedValue = $('#search_motherboard').val();
+        if (PostedValue === "") {
             $("#display_motherboard").html("");
         }
         else {
@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 	$("#search_cpu").keyup(function() {
-		display_item("#display_cpu", "#search_cpu", "search_cpu");
+		display_item("#display_cpu", '#search_cpu', "search_cpu");
 	});
 });
  
@@ -29,8 +29,8 @@ function fill(Key, Value, Display, Search) {
 }
 
 function display_item(Display, Search, Data) {
-         var PostedValue = $(Search).val();
-         if (PostedValue === "") {
+        var PostedValue = $(Search).val();
+        if (PostedValue === "") {
             $(Display).html("");
         }
         else {
@@ -38,7 +38,7 @@ function display_item(Display, Search, Data) {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    Data: PostedValue
+                    search_cpu: PostedValue
                 },
                 success: function(response) {
                     $(Display).html(response).show();
