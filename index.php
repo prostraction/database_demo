@@ -57,7 +57,7 @@
 		</div>
     </form> 
 
-	<p> <b> Видеокарта </b></p>
+	<p> <b>Видеокарта (GPU) </b></p>
     <form>
         <label>
             <input type="text" id="gpu" placeholder="Начните вводить..." />
@@ -69,7 +69,7 @@
 		</button>
 	</form>
 	
-	<p> <b>Блок питания:</b></p>
+	<p> <b>Блок питания (PSU):</b></p>
         <label>
             <input type="text" id="psu" placeholder="Начните вводить..." />
         </label>	
