@@ -28,7 +28,7 @@
         <p> <label> <span id="value_cpu_fan"> </span> </label> </p>
 		<label> <input type="text" id="search_cpu_fan" placeholder="Начните вводить..." /> </label>
     </form>
-	<div id="display_cpu_fun"></div>
+	<div id="display_cpu_fan"></div>
 	
 	<p> <b>Оперативная память (RAM): </b> </p>
     <form>

@@ -1,22 +1,22 @@
-$(document).ready(function() {
-    $("#search_motherboard").keyup(function() {
+$(document).ready(fanction() {
+    $("#search_motherboard").keyup(fanction() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
     });
-	$("#search_cpu").keyup(function() {
+	$("#search_cpu").keyup(fanction() {
 		display_item("#display_cpu", '#search_cpu', "search_cpu");
 	});
-	$("#search_cpu_fan").keyup(function() {
+	$("#search_cpu_fan").keyup(fanction() {
 		display_item("#display_cpu_fan", '#search_cpu_fan', "search_cpu_fan");
 	});
 });
  
-function fill(Key, Value, Display, Search) {
+fanction fill(Key, Value, Display, Search) {
     $(Key).text(Value);
 	$(Search).val('');
     $(Display).hide();
 }
 
-function display_item(Display, Search, Search_Object) {
+fanction display_item(Display, Search, Search_Object) {
         var PostedValue = $(Search).val();
         if (PostedValue === "") {
             $(Display).html("");
@@ -26,7 +26,7 @@ function display_item(Display, Search, Search_Object) {
                 type: "POST",
                 url: "handler.php",
                 data: Search_Object+'='+PostedValue,
-                success: function(response) {
+                success: fanction(response) {
                     $(Display).html(response).show();
                 }
             });
