@@ -38,7 +38,7 @@ function display_item(Display, Search, Search_Object) {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    $(Search_Object): PostedValue
+                    $(Search_Object).value: PostedValue
                 },
                 success: function(response) {
                     $(Display).html(response).show();
