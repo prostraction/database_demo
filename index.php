@@ -9,13 +9,12 @@
 <body>
 	<p> <b>Материнская плата: </b></p>
     <form>
-        <label>
-            <input type="text" id="search" placeholder="Начните вводить..." />
-        </label>
+		<label><id="value_motherboard" value=""></label>
+        <label> <input type="text" id="search_motherboard" placeholder="Начните вводить..." /> </label>
     </form>
 	
 	<!-- Контейнер для результатов поиска -->
-    <div id="display"></div>
+    <div id="display_motherboard"></div>
 
 	<p> <b>Процессор (CPU): </b></p>
     <form>

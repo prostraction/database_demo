@@ -1,18 +1,18 @@
 $(document).ready(function() {
-    $("#search").keyup(function() {
-         var name = $('#search').val();
+    $("#search_motherboard").keyup(function() {
+         var name = $('#search_motherboard').val();
          if (name === "") {
-            $("#display").html("");
+            $("#display_motherboard").html("");
         }
         else {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    search: name
+                    value_motherboard: name
                 },
                 success: function(response) {
-                    $("#display").html(response).show();
+                    $("#display_motherboard").html(response).show();
                 }
             });
  
@@ -22,7 +22,7 @@ $(document).ready(function() {
  
 });
  
-function fill(Value) {
-    $('#search').val(Value);
-    $('#display').hide();
+function fill(Key, Value) {
+    $(Key).val(Value);
+    $('#display_motherboard').hide();
 }
