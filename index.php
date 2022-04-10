@@ -17,6 +17,7 @@
 
 	<p><b>	Процессор (CPU): </b></p>
     <form>
+		<p> <label> <span id="value_cpu"> </span> </label> </p>
         <label> <input type="text" id="search_cpu" placeholder="Начните вводить..." /> </label>
     </form>
 	<!-- Контейнер для результатов поиска -->

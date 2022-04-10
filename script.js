@@ -18,8 +18,23 @@ $(document).ready(function() {
         }
     });
 	$("#search_cpu").keyup(function() {
-		display_item("#display_cpu", '#search_cpu', search_cpu);
-	});
+         var PostedValue = $('#search_cpu').val();
+         if (PostedValue === "") {
+            $("#display_cpu").html("");
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "handler.php",
+                data: {
+                    search_cpu: PostedValue
+                },
+                success: function(response) {
+                    $("#display_cpu").html(response).show();
+                }
+            });
+        }
+    });
 });
  
 function fill(Key, Value, Display, Search) {
