@@ -19,16 +19,16 @@
     <form>
 		<p> <label> <span id="value_cpu"> </span> </label> </p>
         <label> <input type="text" id="search_cpu" placeholder="Начните вводить..." /> </label>
+		<div id="display_cpu"></div>
     </form>
-	<!-- Контейнер для результатов поиска -->
-    <div id="display_cpu"></div>
+
      
 	<p> <b>Кулер процессора (CPU): </b> </p>
     <form>
-        <label>
-            <input type="text" id="cpu_fan" placeholder="Начните вводить..." />
-        </label>
+        <p> <label> <span id="value_cpu_fan"> </span> </label> </p>
+		<label> <input type="text" id="search_cpu_fan" placeholder="Начните вводить..." /> </label>
     </form>
+	<div id="display_cpu_fun"></div>
 	
 	<p> <b>Оперативная память (RAM): </b> </p>
     <form>

@@ -1,24 +1,12 @@
 $(document).ready(function() {
     $("#search_motherboard").keyup(function() {
-        var PostedValue = $('#search_motherboard').val();
-        if (PostedValue === "") {
-            $("#display_motherboard").html("");
-        }
-        else {
-            $.ajax({
-                type: "POST",
-                url: "handler.php",
-                data: {
-                    search_motherboard: PostedValue
-                },
-                success: function(response) {
-                    $("#display_motherboard").html(response).show();
-                }
-            });
-        }
+		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
     });
 	$("#search_cpu").keyup(function() {
 		display_item("#display_cpu", '#search_cpu', "search_cpu");
+	});
+	$("#search_cpu").keyup(function() {
+		display_item("#display_cpu", '#search_cpu_fan', "search_cpu_fan");
 	});
 });
  

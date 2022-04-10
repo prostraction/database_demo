@@ -32,3 +32,20 @@ if (isset($_POST['search_cpu'])) {
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
 <?php }}?> </ul>
+
+<?php
+if (isset($_POST['search_cpu_fan'])) {
+    $PostedValue 	= $_POST['search_cpu_fan'];
+	$VisibleValue 	= '#value_cpu_fan';
+	$SearchDisplay	= '#display_cpu_fan';
+	$SearchTable	= '#search_cpu_fan';
+    $Query = "SELECT model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+	
+    echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
+            <a> <?php echo $Result[0]; ?>  </a>
+        </li>
+<?php }}?> </ul>
