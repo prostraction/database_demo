@@ -9,7 +9,7 @@
 <body>
 	<p> <b>Материнская плата: </b></p>
     <form>
-		<label><id="value_motherboard" value="123"/></label>
+		<label><id="value_motherboard" value="123"/>456</label>
         <label> <input type="text" id="search_motherboard" placeholder="Начните вводить..." /> </label>
     </form>
 	
