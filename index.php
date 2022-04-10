@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<p> <b>Материнская плата: </b></p>
-    <form>
+	<p><b>Материнская плата: </b></p>
+    <form method="post">
 		<p> <label> <span id="value_motherboard"> </span> </label> </p>
         <label> <input type="text" type="submit" id="search_motherboard" placeholder="Начните вводить..." /> </label>
     </form>
