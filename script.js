@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 	$("#search_cpu").keyup(function() {
-		display_item("#display_cpu", '#search_cpu', '#search_cp'");
+		display_item("#display_cpu", '#search_cpu', '#search_cpu');
 	});
 });
  
