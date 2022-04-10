@@ -11,7 +11,7 @@ if (isset($_POST['search_motherboard'])) {
     echo '<ul>';
     while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?>
-        <li onclick='fill("<?php echo $Result['PostedValue']; ?>")'>
+        <li onclick='fill("<?php echo $Result['search_motherboard']; ?>")'>
             <a>
                 <?php echo $Result[0]; ?>
             </a>
