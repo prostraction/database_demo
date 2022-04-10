@@ -38,7 +38,7 @@ function display_item(Display, Search) {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    $(Search).val(PostedValue)
+                    $('a[data-id="'+Search+'"]') : PostedValue
                 },
                 success: function(response) {
                     $(Display).html(response).show();
