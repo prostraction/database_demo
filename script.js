@@ -22,7 +22,7 @@ $(document).ready(function() {
  
 });
  
-function fill(Key, Value) {
+function fill(Key, Value, Display) {
     $(Key).text(Value);
-    $('#display_motherboard').hide();
+    $(Display).hide();
 }
