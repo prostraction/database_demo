@@ -2,16 +2,17 @@
 include "db.php";
 
 if (isset($_POST['search'])) {
-    $model = $_POST['search'];
-    $Query = "SELECT model FROM cpu WHERE model LIKE '%$model%' LIMIT 5";
+    $name = $_POST['search'];
+	$requested_name = '#search';
+    $Query = "SELECT model FROM cpu WHERE model LIKE '%$name%' LIMIT 5";
  
     $ExecQuery = mysqli_query($connectionDB, $Query);
     echo '<ul>';
     while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?>
-        <li onclick='fill("<?php echo $Result['model']; ?>")'>
+        <li onclick='fill("<?php echo $Result['name']; ?>")'>
             <a>
-                <?php echo $Result['model']; ?>
+                <?php echo $Result['name']; ?>
             </a>
         </li>
  
