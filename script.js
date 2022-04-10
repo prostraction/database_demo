@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#search_motherboard").keyup(function() {
-         var name = $('#search_motherboard').val();
-         if (name === "") {
+         var PostedValue = $('#search_motherboard').val();
+         if (PostedValue === "") {
             $("#display_motherboard").html("");
         }
         else {
@@ -9,7 +9,7 @@ $(document).ready(function() {
                 type: "POST",
                 url: "handler.php",
                 data: {
-                    search_motherboard: name
+                    search_motherboard: PostedValue
                 },
                 success: function(response) {
                     $("#display_motherboard").html(response).show();
