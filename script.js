@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
     });
 	$("#search_cpu").keyup(function() {
-		display_item("#display_cpu", '#search_cpu', $(search_cpu));
+		display_item("#display_cpu", '#search_cpu', "search_cpu");
 	});
 });
  
@@ -37,9 +37,7 @@ function display_item(Display, Search, Search_Object) {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
-                data: {
-                    Search_Object: PostedValue
-                },
+                data: Search_Object+PostedValue,
                 success: function(response) {
                     $(Display).html(response).show();
                 }
