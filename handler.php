@@ -2,8 +2,8 @@
 include "db.php";
 
 // if (isset($_POST['search_motherboard'])) {
-if (isset($_POST['type'])) {
-	if ($_POST['type'] == 'search_motherboard') {
+if (isset($_POST['text'])) {
+	if ($_POST['text'] == 'search_motherboard') {
 		$PostedValue = $_POST['search_motherboard'];
 		$requested_name = '#search_motherboard';
 		$Query = "SELECT model FROM cpu WHERE model LIKE '%$PostedValue%' LIMIT 5";
