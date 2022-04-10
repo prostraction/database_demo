@@ -5,7 +5,7 @@ if (isset($_POST['search_motherboard'])) {
 	$VisibleValue 	= '#value_motherboard';
 	$SearchDisplay	= '#display_motherboard';
 	$SearchTable	= '#search_motherboard';
-    $Query = "SELECT model FROM motherboard WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $Query = "SELECT DISTINCT model FROM motherboard WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
     echo '<ul>';
@@ -22,7 +22,7 @@ if (isset($_POST['search_cpu'])) {
 	$VisibleValue 	= '#value_cpu';
 	$SearchDisplay	= '#display_cpu';
 	$SearchTable	= '#search_cpu';
-    $Query = "SELECT model FROM cpu WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $Query = "SELECT DISTINCT model FROM cpu WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
     echo '<ul>';
@@ -39,7 +39,7 @@ if (isset($_POST['search_cpu_fan'])) {
 	$VisibleValue 	= '#value_cpu_fan';
 	$SearchDisplay	= '#display_cpu_fan';
 	$SearchTable	= '#search_cpu_fan';
-    $Query = "SELECT model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $Query = "SELECT DISTINCT model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
     echo '<ul>';
