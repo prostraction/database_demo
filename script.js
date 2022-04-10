@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$("#search_cpu").keyup(function() {
 		display_item("#display_cpu", '#search_cpu', "search_cpu");
 	});
-	$("#search_cpu").keyup(function() {
+	$("#search_cpu_fan").keyup(function() {
 		display_item("#display_cpu_fan", '#search_cpu_fan', "search_cpu_fan");
 	});
 });
