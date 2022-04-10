@@ -23,6 +23,6 @@ $(document).ready(function() {
 });
  
 function fill(Value) {
-    $('#value_motherboard').find("span").text('Value');
+    $('#value_motherboard').text('Value');
     $('#display_motherboard').hide();
 }
