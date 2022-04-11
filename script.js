@@ -23,13 +23,7 @@ function find_ram_id(Key, Value, Display, Search) {
     $(Key).text(Value);
 	$(Search).val('');
     $(Display).hide();
-	if (PostedValue !== "") {
-        $.ajax({
-            type: "POST",
-            url: "handler.php",
-            data:{action:'ram_id_find', argument_ram_id: Value}
-        });
-    }
+
 }
 
 function fill_ram_value(Value1, Value2) {
