@@ -1,5 +1,11 @@
 <?php
 include "db.php";
+function debugToBrowserConsole ( $msg ) {
+    $msg = str_replace('"', "''", $msg);  # weak attempt to make sure there's not JS breakage
+    echo "<script>console.debug( \"PHP DEBUG: $msg\" );</script>";
+}
+function d2c ( $msg ) { debugToBrowserConsole( $msg ); }
+
 if (isset($_POST['search_motherboard'])) {
     $PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
@@ -86,6 +92,7 @@ if ($_POST['action'] == 'ram') {
 	
 	//$PassedArgument = intval($_POST['argument_ram'],10);
 	//$string1 = strval($PassedArgument);
+	d2c("dbg: " {$_POST['argument_ram']});
 	$ram_id =(int)$_POST['argument_ram'];
 	//if ($_POST['argument_ram'] == 123456) {
 	//	$ram_id = 222;
