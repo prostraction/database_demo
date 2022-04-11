@@ -72,18 +72,13 @@ if (isset($_POST['search_ram'])) {
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
 <?php }?></ul><?php
-	$Query = "SELECT DISTINCT id FROM ram WHERE model LIKE '%$Result[0]%'";
+	$Query = "SELECT DISTINCT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '#test_ram';
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill_multiple(	"<?php echo $TestValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
-        </li>
+?>             <a> <?php echo $Result[0]; ?>  </a>
 <?php }?></ul><?php
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (999, '$Result')";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
 
 <?php
