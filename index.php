@@ -32,6 +32,7 @@
 	<p> <b>Оперативная память (RAM): </b> </p>
     <form>
 		<p> <div id="value_ram"></div> </p>
+		<p> <div id="test_ram"></div> </p>
         <label> <input type="text" id="search_ram" placeholder="Начните вводить..." /> </label>	
 		<div id="display_ram"></div>
     </form>
