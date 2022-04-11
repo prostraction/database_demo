@@ -29,7 +29,7 @@ function fill_multiple(Key, Value, Display, Search) {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
-                data:{action:'ram'}
+                data:{action:'ram', argument:123456}
             });
         }
 }
