@@ -19,18 +19,42 @@ function fill(Key, Value, Display, Search) {
     $(Display).hide();
 }
 
+function find_value(Key, Value, Display, Search) {
+    $(Key).text(Value);
+	$(Search).val('');
+    $(Display).hide();
+	if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'ram_id_find', argument_ram_id: Value}
+        });
+    }
+}
+
+function fill_ram_value(Value1, Value2) {
+    var PostedValue = $(Value).val();
+    if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'ram', argument1_ram: Value1, argument2_ram: Value2}
+        });
+    }
+});
+
 function fill_multiple(Key, Value, Display, Search) {
     $(Key).append("<a>"+Value+"</a>");
 	$(Search).val('');
     $(Display).hide();
 	var PostedValue = $(Value).val();
-        if (PostedValue !== "") {
-            $.ajax({
-                type: "POST",
-                url: "handler.php",
-                data:{action:'ram', argument_ram:'123'}
-            });
-        }
+    if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'ram', argument_ram:'123'}
+        });
+    }
 }
 
 function display_item(Display, Search, Search_Object) {

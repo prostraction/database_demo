@@ -1,11 +1,5 @@
 <?php
 include "db.php";
-function debugToBrowserConsole ( $msg ) {
-    $msg = str_replace('"', "''", $msg);  # weak attempt to make sure there's not JS breakage
-    echo "<script>console.debug( \"PHP DEBUG: $msg\" );</script>";
-}
-function d2c ( $msg ) { debugToBrowserConsole( $msg ); }
-
 if (isset($_POST['search_motherboard'])) {
     $PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
@@ -67,45 +61,23 @@ if (isset($_POST['search_ram'])) {
 	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill_multiple(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+?> 		<li onclick='find_value("<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
-<?php }?></ul><?php
-	$Query = "SELECT DISTINCT id FROM ram WHERE model LIKE '%$Result[0]%'";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	$TestValue = '#test_ram';
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill_multiple(	"<?php echo $TestValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
-        </li>
-<?php }?></ul><?php
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (999, '$Result')";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-}?>
+<?php }?></ul>
 
 <?php
+if ($_POST['action'] == 'ram_id_find') {
+	$PostedValue = $_POST['argument_ram_id'];
+	$Query = "SELECT id FROM ram WHERE model = '$Result' LIMIT 1;";
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+	$Result = mysqli_fetch_array($ExecQuery);
+	echo "<script>fill_ram_value(1,"<?php echo $Result[0]; ?>");</script>";
+}
+
 if ($_POST['action'] == 'ram') {
-	//$ram_id = mysqli_real_escape_string($connectionDB, $_POST['argument_ram']);
-	
-	//$PassedArgument = intval($_POST['argument_ram'],10);
-	//$string1 = strval($PassedArgument);
-	//$ram_id = 333;//intval($_POST['argument_ram']);
-	//if ($_POST['argument_ram'] == 123456) {
-	//	$ram_id = 222;
-	//}
-	
-	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200," . $ram_id . ");";
-	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200".$ram_id.");";
-	
-	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
-	//$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
-	//$_POST['argument_ram']
-	
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?,?);");
-	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO test (x, y) VALUES (?, ?);");
 	
 	$string_arg1 = '1';
 	$string_arg2 = $_POST['argument_ram'];
@@ -115,5 +87,7 @@ if ($_POST['action'] == 'ram') {
 	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
+
+
 ?>
 
