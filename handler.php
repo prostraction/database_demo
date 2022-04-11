@@ -102,7 +102,7 @@ if ($_POST['action'] == 'ram_id_find') {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 		$yourJS = '<script type="text/javascript">
-                    aaa(aaa,aaa);
+                    alert(aaa);
 					</script>';
 		echo $yourJS;
 	}
