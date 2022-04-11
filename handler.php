@@ -85,7 +85,7 @@ if ($_POST['action'] == 'ram') {
 	$PassedArgument = intval($_POST['argument_ram'],10);
 	if ($PassedArgument === 123456) {
 		$Query = "INSERT INTO ram_computer (computer_id,ram_id) VALUES (%d,%d);";	
-		$ExecQuery = mysqli_query($connectionDB, sprintf($Query, 444, 444));
+		$ExecQuery = mysqli_query($connectionDB, sprintf($Query, 400, $PassedArgument));
 	}
 }
 ?>
