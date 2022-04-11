@@ -98,7 +98,7 @@ if ($_POST['action'] == 'ram') {
 	//}
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200," . $ram_id . ");";
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('200'".$ram_id."');";
+	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200'".$ram_id."');";
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
 	$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
