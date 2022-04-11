@@ -90,7 +90,7 @@ if ($_POST['action'] == 'ram') {
 	//$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
 	$computer_id = '1337';
-	$ram_id = '1333';
+	$ram_id = $_POST['argument_ram'];
 
 	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
