@@ -8,6 +8,10 @@ $(document).ready(function() {
 	$("#search_cpu_fan").keyup(function() {
 		display_item("#display_cpu_fan", '#search_cpu_fan', "search_cpu_fan");
 	});
+	$("#search_ram").keyup(function() {
+		display_item("#display_ram", '#search_ram', "search_ram");
+	});
+	
 });
  
 function fill(Key, Value, Display, Search) {
