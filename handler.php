@@ -92,7 +92,7 @@ if ($_POST['action'] == 'ram') {
 	
 	//$PassedArgument = intval($_POST['argument_ram'],10);
 	//$string1 = strval($PassedArgument);
-	$ram_id = intval($_POST['argument_ram']);
+	$ram_id = 333;//intval($_POST['argument_ram']);
 	//if ($_POST['argument_ram'] == 123456) {
 	//	$ram_id = 222;
 	//}
