@@ -82,10 +82,10 @@ if (isset($_POST['search_ram'])) {
 
 <?php
 if ($_POST['action'] == 'ram') {
-	if ($_POST['argument_ram'] == '123456') {
+//	if ($_POST['argument_ram'] == '123456') {
 		$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (999, 5555555)";
 		$ExecQuery = mysqli_query($connectionDB, $Query);
-	}
+//	}
 }
 
 

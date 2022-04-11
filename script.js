@@ -11,7 +11,6 @@ $(document).ready(function() {
 	$("#search_ram").keyup(function() {
 		display_item("#display_ram", '#search_ram', "search_ram");
 	});
-	
 });
  
 function fill(Key, Value, Display, Search) {
@@ -29,7 +28,7 @@ function fill_multiple(Key, Value, Display, Search) {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
-                data:{action:'ram', argument_ram:'123456'}
+                data: "action="+"ram"+"&argument="+"123456"
             });
         }
 }
