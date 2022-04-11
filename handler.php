@@ -93,10 +93,10 @@ if ($_POST['action'] == 'ram') {
 	$test = (int)($_POST['argument_ram']);
 	$ram_id = 1;
 	if (gettype($ram_id) === gettype($test)) {
-		$test = 100;
+		$ram_id = 100;
 	}
 	else {
-		$test = 200;
+		$ram_id = 200;
 	}
 	if (gettype($ram_id) == gettype($test)) {
 		$computer_id = 300;
