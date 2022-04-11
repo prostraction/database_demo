@@ -21,7 +21,7 @@ function fill(Key, Value, Display, Search) {
 }
 
 function fill_multiple(Key, Value, Display, Search) {
-    $(Key).text(Value);
+    $(Key).append("<a>"+Value+"</a>");
 	$(Search).val('');
     $(Display).hide();
 }

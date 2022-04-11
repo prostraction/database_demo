@@ -61,12 +61,18 @@ if (isset($_POST['search_ram'])) {
 	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+?> 		<li onclick='fill_multiple(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
 <?php }?></ul><?php
-
+	$Query = "SELECT DISTINCT id FROM ram WHERE model LIKE '%$Result[0]%'";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+		
+	}
+	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (999, '$Result')";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
 
 }?>
 
