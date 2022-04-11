@@ -23,6 +23,10 @@ function set_text(Key, Value) {
 	$(Key).text(Value);
 }
 
+function aaa(Key, Value) {
+	alert(Value);
+}
+
 function find_ram_id(Key, Value, Display, Search) {
     var PostedValue = $(Value).val();
 	$(Key).text(Value);
