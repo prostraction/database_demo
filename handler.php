@@ -90,8 +90,21 @@ if ($_POST['action'] == 'ram') {
 	//$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
 	$computer_id = 1377;
-	json_decode($_POST['data'], true);
-	mysqli_stmt_bind_param($stmt, "ii", $computer_id, $_POST['argument_ram']);
+	$test = (int)($_POST['argument_ram']);
+	$ram_id = 1;
+	if (gettype($ram_id) === gettype($test)) {
+		$test = 100;
+	}
+	else {
+		$test = 200;
+	}
+	if (gettype($ram_id) == gettype($test)) {
+		$computer_id = 300;
+	}
+	else {
+		$computer_id = 400;
+	}
+	mysqli_stmt_bind_param($stmt, "ii", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
 ?>
