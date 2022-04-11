@@ -101,12 +101,11 @@ if ($_POST['action'] == 'ram_id_find') {
 	$Query = "SELECT id FROM ram WHERE model = $PostedValue LIMIT 1";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-		$yourJS = '<script type="text/javascript">
+		?><script type="text/javascript">
                     window.onload = dothis();
 					function dothis(){
 						alert("I believe you have something to say to the world");
                     }
-					</script>';
-		echo $yourJS;
+					</script><?php;
 	}
 }
