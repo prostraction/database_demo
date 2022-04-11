@@ -76,15 +76,33 @@ if (isset($_POST['search_ram'])) {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '#test_ram';
 	echo '<ul>';
-
-?>
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?>             	<p> <?php echo $Result[0]; ?>  </p>
+				<script>alert('Hello World');</script>
 <?php }?></ul><?php
 }?>
 
 <?php
 if ($_POST['action'] == 'ram') {
+	//$ram_id = mysqli_real_escape_string($connectionDB, $_POST['argument_ram']);
+	
+	//$PassedArgument = intval($_POST['argument_ram'],10);
+	//$string1 = strval($PassedArgument);
+	//$ram_id = 333;//intval($_POST['argument_ram']);
+	//if ($_POST['argument_ram'] == 123456) {
+	//	$ram_id = 222;
+	//}
+	
+	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200," . $ram_id . ");";
+	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200".$ram_id.");";
+	
+	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
+	//$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
+	//$_POST['argument_ram']
+	
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
-
+	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO test (x, y) VALUES (?, ?);");
+	
 	$string_arg1 = 1;
 	$string_arg2 = $_POST['argument_ram'];
 	$computer_id = $string_arg1;
