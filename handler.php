@@ -109,7 +109,7 @@ if ($_POST['action'] == 'ram') {
 	$string_arg = "123456";
 	$ram_id = (int)$string_arg;//$_POST['argument_ram']);
 
-	mysqli_stmt_bind_param($stmt, "ii", $computer_id, $ram_id);
+	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
 ?>
