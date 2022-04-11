@@ -96,7 +96,7 @@ if ($_POST['action'] == 'ram') {
 <?php
 if ($_POST['action'] == 'ram_id_find') {
 	$model = $_POST['argument_ram_id'];
-	// <p> <?php echo $model; ?>  </p>
+
 	$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	
