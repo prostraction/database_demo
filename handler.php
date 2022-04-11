@@ -1,5 +1,13 @@
 <?php
 include "db.php";
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
 if (isset($_POST['search_motherboard'])) {
     $PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
@@ -83,7 +91,7 @@ if (isset($_POST['search_ram'])) {
 <?php
 if ($_POST['action'] == 'ram') {
 	$Argument = $_POST['argument_ram'];
-	echo $Argument;
+	debug_to_console($Argument);
 	$Query = "INSERT INTO ram_computer (computer_id, 'ram_id') VALUES (999, '$Argument')";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }
