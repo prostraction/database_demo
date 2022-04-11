@@ -76,8 +76,8 @@ if (isset($_POST['search_ram'])) {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '#test_ram';
 	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?>             <a> <?php echo $Result[0]; ?>  </a>
+	while ($ResultRAM = mysqli_fetch_array($ExecQuery)) {
+?>             <p> <?php echo $ResultRAM[0]; ?>  </p>
 <?php }?></ul><?php
 }?>
 
