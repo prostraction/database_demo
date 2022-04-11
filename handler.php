@@ -103,8 +103,12 @@ if ($_POST['action'] == 'ram_id_find') {
 	while ($get_ram_id = mysqli_fetch_array($ExecQuery)) {
 		$ram_id = $get_ram_id[0];
 	}
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
+	alert($ram_id);
+	
+	$NewQuery = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
+	
+	//$ExecQuery = mysqli_query($connectionDB, $Query);
 	//mysqli_stmt_bind_param($stmt, "ss", 1, 100);
 	//mysqli_stmt_execute($stmt);	
 }
