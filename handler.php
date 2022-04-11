@@ -104,6 +104,11 @@ if ($_POST['action'] == 'ram') {
 	else {
 		$computer_id = 400;
 	}
+	
+	if ((int)$_POST['argument_ram'] === 123456) {
+		$ram_id = 444444;
+	}
+	
 	mysqli_stmt_bind_param($stmt, "ii", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
