@@ -16,6 +16,12 @@ function fill(Key, Value, Display, Search) {
     $(Display).hide();
 }
 
+function fill_multiple(Key, Value, Display, Search) {
+    $(Key).text(Value);
+	$(Search).val('');
+    $(Display).hide();
+}
+
 function display_item(Display, Search, Search_Object) {
         var PostedValue = $(Search).val();
         if (PostedValue === "") {
