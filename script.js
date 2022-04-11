@@ -24,6 +24,14 @@ function fill_multiple(Key, Value, Display, Search) {
     $(Key).append("<a>"+Value+"</a>");
 	$(Search).val('');
     $(Display).hide();
+	var PostedValue = $(Value).val();
+        if (PostedValue !== "") {
+            $.ajax({
+                type: "POST",
+                url: "handler.php",
+                data:{action:'ram'}
+            });
+        }
 }
 
 function display_item(Display, Search, Search_Object) {
