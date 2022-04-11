@@ -83,6 +83,8 @@ if (isset($_POST['search_ram'])) {
 <?php
 if ($_POST['action'] == 'ram') {
 	$PassedArgument = intval($_POST['argument_ram'],10);
+	echo '<ul>';
+?> <a> <?php echo $PassedArgument; ?> </a><?php 
 	$Query = "INSERT INTO ram_computer (computer_id,ram_id) VALUES (%d,%d);";	
 	$ExecQuery = mysqli_query($connectionDB, sprintf($Query, 444, $PassedArgument));
 }
