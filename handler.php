@@ -95,6 +95,7 @@ if ($_POST['action'] == 'ram') {
 
 <?php
 if ($_POST['action'] == 'ram_id_find') {
+	echo '<script>alert("Welcome to Geeks for Geeks")</script>';
 	$model = $_POST['argument_ram_id'];
 	$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
@@ -104,7 +105,11 @@ if ($_POST['action'] == 'ram_id_find') {
 		$ram_id = $get_ram_id[0];
 	}
 	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
-	?> echo "<script type='text/javascript'>alert('$ram_id');</script>";<?php
+	<?php
+	//echo '<script type ="text/JavaScript">';
+	//echo 'alert("JavaScript Alert Box by PHP")';
+	//echo '</script>';
+?>
 	
 	//$NewQuery = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
 	
