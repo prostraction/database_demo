@@ -29,7 +29,7 @@ function fill_multiple(Key, Value, Display, Search) {
                 type: "POST",
                 url: "handler.php",
 				dataType: "json",
-                data:{action:'ram', argument_ram:123456}
+                data:{action:'ram', argument_ram:'123456'}
             });
         }
 }
