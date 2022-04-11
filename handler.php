@@ -100,11 +100,5 @@ if ($_POST['action'] == 'ram_id_find') {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$get_ram_id = mysqli_fetch_array($ExecQuery);
 	
-	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
-	$string_arg1 = 1;
-	$string_arg2 = $get_ram_id[0];
-	$computer_id = $string_arg1;
-	$ram_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_param($stmt, "ss", 1, 100);
-	mysqli_stmt_execute($stmt);	
+
 }
