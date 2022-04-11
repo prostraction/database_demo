@@ -92,22 +92,22 @@ if ($_POST['action'] == 'ram') {
 	
 	//$PassedArgument = intval($_POST['argument_ram'],10);
 	//$string1 = strval($PassedArgument);
-	$ram_id = 333;//intval($_POST['argument_ram']);
+	//$ram_id = 333;//intval($_POST['argument_ram']);
 	//if ($_POST['argument_ram'] == 123456) {
 	//	$ram_id = 222;
 	//}
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200," . $ram_id . ");";
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200".$ram_id.");";
+	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200".$ram_id.");";
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
-	$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
-	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
-	//$computer_id = '1337';
-	//$ram_id = $_POST['argument_ram'];
+	//$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
+	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
+	$computer_id = '1337';
+	$ram_id = intval($_POST['argument_ram']);
 
-	//mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
-	//mysqli_stmt_execute($stmt);
+	mysqli_stmt_bind_param($stmt, "ii", $computer_id, $ram_id);
+	mysqli_stmt_execute($stmt);
 }
 ?>
 
