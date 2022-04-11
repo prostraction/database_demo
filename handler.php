@@ -77,7 +77,7 @@ if (isset($_POST['search_ram'])) {
 	$TestValue = '#test_ram';
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-			echo "<script>set_text("<?php echo $TestValue; ?>", "<?php echo $Result[0]; ?>");</script>";
+			echo "<script>set_text("<?php echo $TestValue; ?>", "<?php echo $Result[0]; ?>");</script>"
  }?></ul><?php
 }?>
 
