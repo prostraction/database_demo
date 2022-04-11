@@ -41,7 +41,7 @@ function fill_ram_value(Value1, Value2) {
             data:{action:'ram', argument1_ram: Value1, argument2_ram: Value2}
         });
     }
-});
+}
 
 function fill_multiple(Key, Value, Display, Search) {
     $(Key).append("<a>"+Value+"</a>");
