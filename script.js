@@ -24,12 +24,11 @@ function fill_multiple(Key, Value, Display, Search) {
 	$(Search).val('');
     $(Display).hide();
 	var PostedValue = $(Value).val();
-	var obj = {action:'ram', 'argument_ram': 123456}
         if (PostedValue !== "") {
             $.ajax({
                 type: "POST",
                 url: "handler.php",
-                data: JSON.stringify(obj)
+                data:{action:'ram', argument_ram:123456}
             });
         }
 }
