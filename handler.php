@@ -1,10 +1,7 @@
 <?php
 include "db.php";
-function debugToBrowserConsole ( $msg ) {
-    $msg = str_replace('"', "''", $msg);  # weak attempt to make sure there's not JS breakage
-    echo "<script>console.debug( \"PHP DEBUG: $msg\" );</script>";
-}
-function d2c ( $msg ) { debugToBrowserConsole( $msg ); }
+
+$computer_id = 1;
 
 if (isset($_POST['search_motherboard'])) {
     $PostedValue 	= $_POST['search_motherboard'];
@@ -109,7 +106,7 @@ if ($_POST['action'] == 'ram_id_find') {
 	$string_arg2 = $get_ram_id[0];
 	$computer_id = $string_arg1;
 	$ram_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
+	mysqli_stmt_bind_param($stmt, "ss", 1, 100);
 	mysqli_stmt_execute($stmt);
 	
 }
