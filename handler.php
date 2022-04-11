@@ -87,7 +87,7 @@ if ($_POST['action'] == 'ram') {
 	//$PassedArgument = intval($_POST['argument_ram'],10);
 	//$string1 = strval($PassedArgument);
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (300," . $ram_id . ");";	
-	$temp = intval($_POST['argument_ram'],10);
+	$temp = 222;
 	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
 	$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
 	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
