@@ -97,5 +97,12 @@ if ($_POST['action'] == 'ram') {
 ?>
 <?php
 if ($_POST['action'] == 'ram_id_find') {
-	echo $_POST['argument_ram_id'];
+	$PostedValue = $_POST['argument_ram_id'];
+	$Query = "SELECT id FROM ram WHERE model = $PostedValue LIMIT 1";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+		echo '<script type="text/javascript">',
+			'alert($Result[0]);',
+			'</script>';
+	}
 }
