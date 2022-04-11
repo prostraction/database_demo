@@ -24,7 +24,8 @@ function set_text(Key, Value) {
 }
 
 function find_ram_id(Key, Value, Display, Search) {
-    $(Key).text(Value);
+    var PostedValue = $(Value).val();
+	$(Key).text(Value);
 	$(Search).val('');
     $(Display).hide();
 	if (PostedValue !== "") {
