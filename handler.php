@@ -61,7 +61,7 @@ if (isset($_POST['search_ram'])) {
 	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='find_value("<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
@@ -73,7 +73,8 @@ if ($_POST['action'] == 'ram_id_find') {
 	$Query = "SELECT id FROM ram WHERE model = '$Result' LIMIT 1;";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	$Result = mysqli_fetch_array($ExecQuery);
-	echo "<script>fill_ram_value(1,"<?php echo $Result[0]; ?>");</script>";
+	?>echo "<script>fill_ram_value(1,"<?php echo $Result[0]; ?>");</script>";
+	<?php
 }
 
 if ($_POST['action'] == 'ram') {
@@ -87,7 +88,5 @@ if ($_POST['action'] == 'ram') {
 	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
-
-
 ?>
 
