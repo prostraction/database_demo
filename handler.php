@@ -92,14 +92,13 @@ if ($_POST['action'] == 'ram') {
 	
 	//$PassedArgument = intval($_POST['argument_ram'],10);
 	//$string1 = strval($PassedArgument);
-	d2c("dbg: " {$_POST['argument_ram']});
-	$ram_id =(int)$_POST['argument_ram'];
+	$ram_id = $_POST['argument_ram'];
 	//if ($_POST['argument_ram'] == 123456) {
 	//	$ram_id = 222;
 	//}
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200," . $ram_id . ");";
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (200,$ram_id);";
+	$Query = "INSERT INTO ram_computer ('computer_id', 'ram_id') VALUES ('200','$ram_id');";
 	
 	//$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('".$temp."', '".$temp."')";
 	$ExecQuery = mysqli_query($connectionDB, $Query);//sprintf($Query, 400, $PassedArgument));
