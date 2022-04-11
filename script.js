@@ -19,6 +19,10 @@ function fill(Key, Value, Display, Search) {
     $(Display).hide();
 }
 
+function set_text(Key, Value) {
+	$(Key).text(Value);
+}
+
 function find_ram_id(Key, Value, Display, Search) {
     $(Key).text(Value);
 	$(Search).val('');
