@@ -72,7 +72,7 @@ if (isset($_POST['search_ram'])) {
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
 <?php }?></ul><?php
-	$Query = "SELECT DISTINCT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id";
+	$Query = "SELECT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '#test_ram';
 	echo '<ul>';
