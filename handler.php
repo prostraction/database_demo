@@ -102,7 +102,10 @@ if ($_POST['action'] == 'ram_id_find') {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 		$yourJS = '<script type="text/javascript">
-                    alert(aaa);
+                    window.onload = dothis();
+					function dothis(){
+						alert("I believe you have something to say to the world");
+                    }
 					</script>';
 		echo $yourJS;
 	}
