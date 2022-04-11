@@ -96,15 +96,9 @@ if ($_POST['action'] == 'ram') {
 <?php
 if ($_POST['action'] == 'ram_id_find') {
 	$model = $_POST['argument_ram_id'];
-	$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1;";
+	$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
-	while ($get_ram_id = mysqli_fetch_array($ExecQuery) {
+	$get_ram_id = mysqli_fetch_array($ExecQuery);
 	
-	}
-	
-	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '14');";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
 
-	//mysqli_stmt_bind_param($stmt, "ss", 1, 100);
-	//mysqli_stmt_execute($stmt);	
 }
