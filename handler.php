@@ -105,7 +105,7 @@ if ($_POST['action'] == 'ram') {
 		$computer_id = 400;
 	}
 	
-	if (intval($_POST['argument_ram']) === 123456) {
+	if (intval($_POST['argument_ram']) == 123456) {
 		$ram_id = 444444;
 	}
 	
