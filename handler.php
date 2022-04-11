@@ -104,7 +104,7 @@ if ($_POST['action'] == 'ram_id_find') {
 		$ram_id = $get_ram_id[0];
 	}
 	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
-	echo "<script type='text/javascript'>alert('$ram_id');</script>";
+	?> echo "<script type='text/javascript'>alert('$ram_id');</script>";<?php
 	
 	//$NewQuery = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
 	
