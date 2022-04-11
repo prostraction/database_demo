@@ -75,7 +75,7 @@ if (isset($_POST['search_ram'])) {
 							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
             <a> <?php echo $Result[0]; ?>  </a>
         </li>
-<?php }?></ul><?php	}
+<?php }?></ul><?php
 	$Query = "INSERT INTO ram_computer (computer_id, ram_id) VALUES (999, '$Result')";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
