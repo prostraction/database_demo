@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="ru">
 <head>
     <title>Конструктор ПК</title>
@@ -15,14 +15,14 @@
     </form>	
     <div id="display_motherboard"></div>
 	<!----------------------------------------------->
-	<p><b>	Процессор (CPU): </b></p>
+	<p><b>Процессор (CPU): </b></p>
     <form>
 		<p> <label> <span id="value_cpu"> </span> </label> </p>
         <label> <input type="text" id="search_cpu" placeholder="Начните вводить..." /> </label>
 		<div id="display_cpu"></div>
     </form>
 	<!----------------------------------------------->    
-	<p> <b>Кулер процессора (CPU): </b> </p>
+	<p> <b>Кулер процессора (CPU): </b></p>
     <form>
         <p> <label> <span id="value_cpu_fan"> </span> </label> </p>
 		<label> <input type="text" id="search_cpu_fan" placeholder="Начните вводить..." /> </label>
@@ -31,7 +31,9 @@
 	<!----------------------------------------------->
 	<p> <b>Оперативная память (RAM): </b> </p>
     <form>
-        <label> <input type="text" id="ram" placeholder="Начните вводить..." /> </label>	
+		<p> <div id="value_ram"></div> </p>
+        <label> <input type="text" id="search_ram" placeholder="Начните вводить..." /> </label>	
+		<div id="display_ram"></div>
     </form>
 	<form>
 		<button id="add_ram" disabled="disabled">

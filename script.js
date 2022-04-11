@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $("#search_motherboard").keyup(function() {
+	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
-    });
+	});
 	$("#search_cpu").keyup(function() {
 		display_item("#display_cpu", '#search_cpu', "search_cpu");
 	});
@@ -31,4 +31,4 @@ function display_item(Display, Search, Search_Object) {
                 }
             });
         }
-    }
+}
