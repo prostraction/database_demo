@@ -73,8 +73,7 @@ if ($_POST['action'] == 'ram_id_find') {
 	$Query = "SELECT id FROM ram WHERE model = '$Result' LIMIT 1;";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	$Result = mysqli_fetch_array($ExecQuery);
-	?>echo "<script>fill_ram_value(1,"<?php echo $Result[0]; ?>");</script>";
-	<?php
+
 }
 
 if ($_POST['action'] == 'ram') {
