@@ -95,25 +95,20 @@ if ($_POST['action'] == 'ram') {
 
 <?php
 if ($_POST['action'] == 'ram_id_find') {
-	//$model = $_POST['argument_ram_id'];
+	$model = $_POST['argument_ram_id'];
+	$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	
+	$ram_id = 0;
+	while ($get_ram_id = mysqli_fetch_array($ExecQuery)) {
+		$ram_id = $get_ram_id[0];
+	}
+	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
+	
+	
+	$NewQuery = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
 
-	//$Query = "SELECT id FROM ram WHERE model = $model LIMIT 1;";
 	//$ExecQuery = mysqli_query($connectionDB, $Query);
-	
-	//$ram_id = 0;
-	//while ($get_ram_id = mysqli_fetch_array($ExecQuery)) {
-	//	$ram_id = $get_ram_id[0];
-	//}
-	//$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?);");
-	<?php
-	//echo '<script type ="text/JavaScript">';
-	//echo 'alert("JavaScript Alert Box by PHP")';
-	//echo '</script>';
-?>
-	
-	//$NewQuery = "INSERT INTO ram_computer (computer_id, ram_id) VALUES ('1', '$ram_id');";
-	
-	//$ExecQuery = mysqli_query($connectionDB, $Query);
-	//mysqli_stmt_bind_param($stmt, "ss", 1, 100);
-	//mysqli_stmt_execute($stmt);	
+	mysqli_stmt_bind_param($stmt, "ss", 1, 14);
+	mysqli_stmt_execute($stmt);	
 }
