@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: application/json');
 include "db.php";
 
 $computer_id = 1;
@@ -75,7 +74,7 @@ if (isset($_POST['search_ram'])) {
 		//addslashes($temp2); //preg_replace('\\/','-',$Result['model']);
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
 								"<?php echo $Result['id']; ?>", 
-								json_encode("<?php echo $temp2; ?>"), 
+								"<?php echo $temp2; ?>", 
 								"<?php echo $SearchDisplay; ?>", 
 								"<?php echo $SearchTable; ?>")'>
 							
