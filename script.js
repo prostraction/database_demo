@@ -36,7 +36,7 @@ function find_ram_id(Key, ValueId, ValueName, Display, Search) {
         $.ajax({
             type: "POST",
             url: "handler.php",
-            data:{action:'ram_id_find', argument_ram_id: Value}
+            data:{action:'ram_id_find', argument_ram_id: ValueId}
         });
 		alert(ValueId);
 		alert(ValueName);
