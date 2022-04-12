@@ -55,7 +55,7 @@ if (isset($_POST['search_cpu_fan'])) {
 
 <?php
 if (isset($_POST['search_ram'])) {
-    $PostedValue 	= mysql_real_escape_string($_POST['search_ram']);
+    $PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['search_ram']);
 	$VisibleValue 	= '#value_ram';
 	$SearchDisplay	= '#display_ram';
 	$SearchTable	= '#search_ram';
