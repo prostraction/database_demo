@@ -65,6 +65,7 @@ if (isset($_POST['search_ram'])) {
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
+								"<?php echo $Result['id']; ?>", 
 								"<?php echo $Result['model']; ?>", 
 								"<?php echo $SearchDisplay; ?>", 
 								"<?php echo $SearchTable; ?>")'>
