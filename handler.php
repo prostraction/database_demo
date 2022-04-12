@@ -55,14 +55,11 @@ if (isset($_POST['search_cpu_fan'])) {
 
 <?php
 if (isset($_POST['search_ram'])) {
-    $PostedValue 	= $_POST['search_ram'];
+    $PostedValue 	= mysql_real_escape_string($_POST['search_ram']);
 	$VisibleValue 	= '#value_ram';
 	$SearchDisplay	= '#display_ram';
 	$SearchTable	= '#search_ram';
-    //$Query = "SELECT DISTINCT id, model FROM ram WHERE model LIKE '%$PostedValue%' LIMIT 5";
-	
-	$Query = sprintf("SELECT DISTINCT id, model FROM ram WHERE model LIKE '%%s' LIMIT 5",
-						mysqli_real_escape_string($connectionDB, $PostedValue));
+    $Query = "SELECT DISTINCT id, model FROM ram WHERE model LIKE '%$PostedValue%' LIMIT 5";
 	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
