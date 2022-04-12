@@ -61,7 +61,7 @@ if (isset($_POST['search_ram'])) {
 	$SearchTable	= '#search_ram';
     //$Query = "SELECT DISTINCT id, model FROM ram WHERE model LIKE '%$PostedValue%' LIMIT 5";
 	
-	$Query = sprintf("SELECT DISTINCT id, model FROM ram WHERE model LIKE '%s' LIMIT 5",
+	$Query = sprintf("SELECT DISTINCT id, model FROM ram WHERE model LIKE '%%s' LIMIT 5",
 						mysqli_real_escape_string($connectionDB, $PostedValue));
 	
     $ExecQuery = mysqli_query($connectionDB, $Query);
