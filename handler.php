@@ -106,7 +106,7 @@ if ($_POST['action'] == 'ram_id_find') {
 	//while ($get_ram_id = mysqli_fetch_array($ExecQuery)) {}
 	
 	$stmt = mysqli_prepare($connectionDB, "INSERT IGNORE INTO test (x) VALUES (?);");
-	$string_arg1 = $get_ram_id[0];
+	$string_arg1 = $get_ram_id;
 	$computer_id = $string_arg1;
 	mysqli_stmt_bind_param($stmt, "s", $computer_id);
 	mysqli_stmt_execute($stmt);
