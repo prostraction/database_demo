@@ -67,7 +67,7 @@ if (isset($_POST['search_ram'])) {
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
 							
-            <a> <?php echo $Result[0]; ?>  </a>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }?></ul><?php
 	$Query = "SELECT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
