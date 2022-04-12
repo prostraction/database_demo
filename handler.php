@@ -63,11 +63,14 @@ if (isset($_POST['search_ram'])) {
 	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
+	mysqli_real_escape_string($connectionDB,$Result['id']);
+	mysqli_real_escape_string($connectionDB,$Result['model']]);
+	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
-								"<?php echo $Result['id']; ?>", 
-								"<?php echo $Result['model']; ?>", 
+								"<?php echo mysqli_real_escape_string($connectionDB,$Result['id']); ?>", 
+								"<?php echo mysqli_real_escape_string($connectionDB,$Result['model']]); ?>", 
 								"<?php echo $SearchDisplay; ?>", 
 								"<?php echo $SearchTable; ?>")'>
 							
