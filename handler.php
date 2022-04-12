@@ -69,7 +69,7 @@ if (isset($_POST['search_ram'])) {
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 		//$temp1 = json_encode($Result['id']);
-		$temp2 = preg_replace("/A/","O",$Result['model']);
+		$temp2 = preg_replace("/\/"," ",$Result['model']);
 		//$temp2 = $Result['model'];
 		//addslashes($temp2); //preg_replace('\\/','-',$Result['model']);
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
