@@ -27,7 +27,7 @@ function aaa(Key, Value) {
 	alert(Value);
 }
 
-function find_ram_id(Key, ValueId, ValueName, Display, Search) {
+function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
     var PostedValue = $(ValueName).val();
 	$(Key).text(ValueName);
 	$(Search).val('');
@@ -36,21 +36,10 @@ function find_ram_id(Key, ValueId, ValueName, Display, Search) {
         $.ajax({
             type: "POST",
             url: "handler.php",
-            data:{action:'ram_id_find', argument_ram_id: ValueId}
+            data:{action:'ram_id', argument_ram_id: ValueId}
         });
 		alert(ValueId);
 		alert(ValueName);
-    }
-}
-
-function fill_ram_value(Value1, Value2) {
-    var PostedValue = $(Value).val();
-    if (PostedValue !== "") {
-        $.ajax({
-            type: "POST",
-            url: "handler.php",
-            data:{action:'ram', argument1_ram: Value1, argument2_ram: Value2}
-        });
     }
 }
 

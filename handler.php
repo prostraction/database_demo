@@ -59,21 +59,14 @@ if (isset($_POST['search_ram'])) {
 	$VisibleValue 	= '#value_ram';
 	$SearchDisplay	= '#display_ram';
 	$SearchTable	= '#search_ram';
-    $Query = "SELECT DISTINCT id, model FROM ram WHERE model LIKE '%$PostedValue%' LIMIT 5";
-	
+    $Query = "SELECT DISTINCT id, model FROM ram WHERE model LIKE '%$PostedValue%' LIMIT 5";	
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
-	//mysqli_real_escape_string($connectionDB,$Result['id']);
-	//mysqli_real_escape_string($connectionDB,$Result['model']]);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-		//$temp1 = json_encode($Result['id']);
+		// failed to escape string by \\/
 		$temp2 = preg_replace('/[\/]+/','-',$Result['model']);
 		$temp2 = preg_replace('/[\.]+/','-',$temp2);
-		//$temp2 = $Result['model'];
-		//addslashes($temp2); //preg_replace('\\/','-',$Result['model']);
-?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
+?> 		<li onclick='fill_computer_ram("<?php echo $VisibleValue; ?>", 
 								"<?php echo $Result['id']; ?>", 
 								"<?php echo $temp2; ?>", 
 								"<?php echo $SearchDisplay; ?>", 
@@ -82,6 +75,9 @@ if (isset($_POST['search_ram'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }?></ul><?php
+	
+
+	// output selected works only on searching
 	$Query = "SELECT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '#test_ram';
