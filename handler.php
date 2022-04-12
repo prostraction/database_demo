@@ -95,18 +95,18 @@ if ($_POST['action'] == 'ram') {
 
 <?php
 if ($_POST['action'] == 'ram_id_find') {
-	$model = $_POST['argument_ram_id'];
-	$stmt = mysqli_prepare($connectionDB, "SELECT id FROM ram WHERE model=? LIMIT 1");
-	mysqli_stmt_bind_param($stmt, "s", $model);
-	mysqli_stmt_execute($stmt);
-	$get_ram_id = mysqli_stmt_get_result($stmt);
+	//$model = $_POST['argument_ram_id'];
+	//$stmt = mysqli_prepare($connectionDB, "SELECT id FROM ram WHERE model=? LIMIT 1");
+	//mysqli_stmt_bind_param($stmt, "s", $model);
+	//mysqli_stmt_execute($stmt);
+	//$get_ram_id = mysqli_stmt_get_result($stmt);
 	
 	//$ExecQuery = mysqli_query($connectionDB, $Query);
 	// $get_ram_id = mysqli_fetch_assoc($ExecQuery);
 	//while ($get_ram_id = mysqli_fetch_array($ExecQuery)) {}
 	
 	$stmt = mysqli_prepare($connectionDB, "INSERT IGNORE INTO test (x) VALUES (?);");
-	$string_arg1 = $get_ram_id;
+	$string_arg1 = 100;//$get_ram_id;
 	$computer_id = $string_arg1;
 	mysqli_stmt_bind_param($stmt, "s", $computer_id);
 	mysqli_stmt_execute($stmt);
