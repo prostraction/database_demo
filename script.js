@@ -38,6 +38,7 @@ function find_ram_id(Key, Value, Display, Search) {
             url: "handler.php",
             data:{action:'ram_id_find', argument_ram_id: Value}
         });
+		alert(Value);
     }
 }
 
