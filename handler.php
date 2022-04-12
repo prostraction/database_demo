@@ -72,7 +72,7 @@ if (isset($_POST['search_ram'])) {
 		//$temp1 = json_encode($Result['id']);
 		//$temp2 = preg_replace('\\','\\\\',$Result['model']);
 		$temp2 = $Result['model'];
-		addcslashed($temp2,'/'); //preg_replace('\\/','-',$Result['model']);
+		addcslashed($temp2); //preg_replace('\\/','-',$Result['model']);
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
 								"<?php echo $Result['id']; ?>", 
 								"<?php echo $temp2; ?>", 
