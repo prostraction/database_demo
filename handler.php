@@ -68,8 +68,8 @@ if (isset($_POST['search_ram'])) {
 	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-		$temp1 = mysqli_real_escape_string($connectionDB,$Result['id']);
-		$temp2 = mysqli_real_escape_string($connectionDB,$Result['model']]);
+		$temp1 = .json_encode($Result['id']);
+		$temp2 = .json_encode($Result['model']);
 ?> 		<li onclick='find_ram_id("<?php echo $VisibleValue; ?>", 
 								"<?php echo $Result['id']; ?>", 
 								"<?php echo $temp2; ?>", 
