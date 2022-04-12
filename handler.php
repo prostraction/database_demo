@@ -100,7 +100,7 @@ if ($_POST['action'] == 'ram_id_find') {
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$get_ram_id = mysqli_fetch_assoc($ExecQuery);
 	
-	$stmt = mysqli_prepare($connectionDB, "INSERT INTO test (x) VALUES (?);");
+	$stmt = mysqli_prepare($connectionDB, "INSERT IGNORE INTO test (x) VALUES (?);");
 	$string_arg1 = 100; //$get_ram_id[0];
 	$computer_id = $string_arg1;
 	mysqli_stmt_bind_param($stmt, "s", $computer_id);
