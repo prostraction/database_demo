@@ -44,7 +44,7 @@ function delete_computer_ram(Key, ValueId) {
         $.ajax({
             type: "POST",
             url: "handler.php",
-            data:{action:'insert_ram', argument_ram_id: ValueId},
+            data:{action:'delete_ram', argument_ram_id: ValueId},
 			success: function(response) {
                     display_item("#test_ram", '#show_ram', "show_ram");
             }
