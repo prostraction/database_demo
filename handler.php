@@ -35,9 +35,6 @@ if (strlen($_POST['action']) > 0 ) {
 	else if ($_POST['action'] == 'show_cpu') {
 		$Query = "SELECT model FROM computer INNER JOIN cpu ON computer.cpu = cpu.id WHERE computer.id = $computer_id;";
 	}
-	else if (isset($_POST['show_ram'])) {
-		$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = $computer_id";
-	}
 	else if ($_POST['action'] == 'show_psu') {
 		$Query = "SELECT model FROM computer INNER JOIN psu ON computer.psu = psu.id WHERE computer.id = $computer_id;";
 	}
