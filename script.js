@@ -9,8 +9,13 @@ $(document).ready(function() {
 		display_search("#display_cpu_fan", '#search_cpu_fan', "search_cpu_fan");
 	});
 	$("#search_ram").keyup(function() {
+<<<<<<< HEAD
 		display_search("#display_ram", '#search_ram', "search_ram");
 		display_inserted("#test_ram", '#show_ram', "show_ram");
+=======
+		//display_item("#display_ram", '#search_ram', "search_ram");
+		display_item("#test", '#search_ram', "show_ram");
+>>>>>>> parent of 9e89999 (Update script.js)
 		// TO DO: copy to autoload
 	});
 });
