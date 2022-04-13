@@ -102,11 +102,15 @@ if ($_POST['action'] == 'insert_ram') {
 
 <?php
 if ($_POST['action'] == 'delete_ram') {
-	$stmt = mysqli_prepare($connectionDB, "DELETE FROM ram_computer WHERE ram_computer.computer_id='?' AND ram_computer.ram_id='?'");
-	$string_arg1 = 1;
-	$string_arg2 = $_POST['argument_ram_id'];
-	$computer_id = $string_arg1;
-	$ram_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
-	mysqli_stmt_execute($stmt);
-}
+	//$PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['argument_ram_id']);
+	$Query = "DELETE FROM ram_computer WHERE ram_computer.computer_id=1 AND ram_computer.ram_id=68;";	
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+	
+	//$stmt = mysqli_prepare($connectionDB, "DELETE FROM ram_computer WHERE ram_computer.computer_id=? AND ram_computer.ram_id=?");
+	//$string_arg1 = 1;
+	//$string_arg2 = $_POST['argument_ram_id'];
+	//$computer_id = $string_arg1;
+	//$ram_id 	 = intval($string_arg2);
+	//mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
+	//mysqli_stmt_execute($stmt);
+}?>
