@@ -149,7 +149,7 @@ if ($_POST['action'] == 'insert_gpu') {
 	$string_arg2 = 42; //$_POST['argument_gpu_id'];
 	$computer_id = $string_arg1;
 	$gpu_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_pagpu($stmt, "ss", $computer_id, $gpu_id);
+	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $gpu_id);
 	mysqli_stmt_execute($stmt);
 }
 ?>
