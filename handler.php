@@ -233,7 +233,7 @@ if (isset($_POST['search_psu'])) {
 	$SearchTable	= '#search_psu';
 	$ShowAction		= 'show_psu';
 	$UpdateAction	= 'update_psu';
-    $Query = "SELECT DISTINCT id, model FROM psu WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $Query = "SELECT DISTINCT MIN(id), model FROM psu WHERE model LIKE '%$PostedValue%' GROUP BY model LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
