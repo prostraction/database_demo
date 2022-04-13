@@ -32,7 +32,7 @@ if ($_POST['action'] == 'show_motherboard') {
 	$TestValue = '1';
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result['model']; ?>
+?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
 
 <?php 
