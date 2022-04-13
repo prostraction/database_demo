@@ -24,7 +24,6 @@ function fill(Key, Value, Display, Search) {
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
 	var PostedValue = $(ValueId).val();
-	//$(Key).text(ValueName);
 	$(Search).val('');
     $(Display).hide();
 	if (PostedValue !== "") {
@@ -34,12 +33,23 @@ function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
             data:{action:'insert_ram', argument_ram_id: ValueId},
 			success: function(response) {
                     display_item("#test_ram", '#show_ram', "show_ram");
-                }
+            }
         });
-		//alert(ValueId);
-		//alert(ValueName);
     }
-	
+}
+
+function delete_computer_ram(Key, ValueId) {
+	var PostedValue = $(ValueId).val();
+	if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'insert_ram', argument_ram_id: ValueId},
+			success: function(response) {
+                    display_item("#test_ram", '#show_ram', "show_ram");
+            }
+        });
+    }
 }
 
 function display_item(Display, Search, Search_Object) {
