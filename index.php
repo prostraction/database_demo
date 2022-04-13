@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!----------------------------------------------->
 	<p> <b>Материнская плата: </b></p>
     <form>
