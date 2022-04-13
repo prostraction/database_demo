@@ -36,7 +36,7 @@ function fill(Key, Value, Display, Search, Action, ShowAction) {
 	$(Search).val('');
     $(Display).hide();
 	update_item(Action, Value, Display, Action, Action);
-	display_item(Key, ShowAction, ShowAction);
+	display_item2(Key, ShowAction);
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
@@ -128,4 +128,15 @@ function display_item(Display, Search, Search_Object) {
                 }
             });
         }
+}
+
+function display_item2(Display, Search_Object) {
+	$.ajax({
+            type: "POST",
+            url: "handler.php",
+            data: Search_Object+'='+PostedValue,
+            success: function(response) {
+				$(Display).html(response).show();
+        }
+    });
 }
