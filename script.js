@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
-	display_item("#value_motherboard", '#show_motherboard', "show_motherboard");
+	display_item2("#value_motherboard", "show_motherboard");
 	
 	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
