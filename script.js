@@ -35,7 +35,8 @@ function fill(Key, Value, Display, Search, Action, ShowAction) {
     //$(Key).text(Value); //////////////////////////////
 	$(Search).val('');
     $(Display).hide();
-	update_item(Action, Value, Display, Key);
+	update_item(Action, Value, Key, ShowAction);
+	//display_item2(Key, ShowAction);
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
@@ -54,7 +55,7 @@ function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
     }
 }
 
-function update_item(Action, ValueId, Display1, Display2) {
+function update_item(Action, ValueId, Key, ShowAction) {
 	var PostedValue = $(ValueId).val();
 	if (PostedValue !== "") {
         $.ajax({
@@ -62,7 +63,7 @@ function update_item(Action, ValueId, Display1, Display2) {
             url: "handler.php",
             data: Action+'='+ValueId,
 			success: function(response) {
-                    display_item2(Display2, ShowAction);
+                    display_item2(Key, ShowAction);
             }
         });
     }
