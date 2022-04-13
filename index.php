@@ -59,7 +59,8 @@
 	<p> <b>Видеокарта (GPU) </b></p>
     <form>
         <label>
-            <input type="text" id="gpu" placeholder="Начните вводить..." />
+		<p> <div id="test_gpu"></div> </p>
+            <input type="text" id="search_gpu" placeholder="Начните вводить..." />
         </label>	
     </form>
 	<form>
