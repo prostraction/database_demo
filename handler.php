@@ -21,7 +21,7 @@ if (isset($_POST['search_motherboard'])) {
 							"<?php echo $SearchTable; ?>",
 							"<?php echo $Action; ?>", 
 							"<?php echo $ShowAction; ?>")'>
-            <a> <?php echo $Result['model']; ?>  </a>
+            <a> <?php echo $Result[0]; ?>  </a>
         </li>
 <?php }}?> </ul>
 
