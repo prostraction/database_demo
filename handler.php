@@ -255,8 +255,6 @@ if (isset($_POST['update_psu'])) {
 }?>
 
 
-
-
 <?php 
 if (isset($_POST['search_pc_case'])) {
     $PostedValue 	= $_POST['search_pc_case'];

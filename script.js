@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
+	alert("111");
 	display_item2("#value_motherboard", "show_motherboard");
 	display_item2("#value_cpu", "show_cpu");
 	display_item2("#value_cpu_fan", "show_cpu_fan");
@@ -42,6 +43,20 @@ function fill(Key, Value, Display, Search, Action, ShowAction) {
 	update_display_item(Action, Value, Key, ShowAction);
 }
 
+function update_display_item(Action, ValueId, Key, ShowAction) {
+	var PostedValue = $(ValueId).val();
+	if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data: Action+'='+ValueId,
+			success: function(response) {
+                    display_item2(Key, ShowAction);
+            }
+        });
+    }
+}
+
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
 	var PostedValue = $(ValueId).val();
 	$(Search).val('');
@@ -53,20 +68,6 @@ function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
             data:{action:'insert_ram', argument_ram_id: ValueId},
 			success: function(response) {
                     display_item("#test_ram", '#show_ram', "show_ram");
-            }
-        });
-    }
-}
-
-function update_display_item(Action, ValueId, Key, ShowAction) {
-	var PostedValue = $(ValueId).val();
-	if (PostedValue !== "") {
-        $.ajax({
-            type: "POST",
-            url: "handler.php",
-            data: Action+'='+ValueId,
-			success: function(response) {
-                    display_item2(Key, ShowAction);
             }
         });
     }
