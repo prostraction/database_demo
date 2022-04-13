@@ -25,17 +25,33 @@ if (isset($_POST['search_motherboard'])) {
 <?php }}?> </ul>
 <?php
 if (strlen($_POST['action']) > 0 ) {
+	$Query = "";
 	if ($_POST['action'] == 'show_motherboard') {
 		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $computer_id;";
-			$ExecQuery = mysqli_query($connectionDB, $Query);
+	}
+	else if ($_POST['action'] == 'show_cpu_fan') {
+		$Query = "SELECT model FROM computer INNER JOIN cpu_fan ON computer.cpu_fan = cpu_fan.id WHERE computer.id = $computer_id;";
+	}
+	else if ($_POST['action'] == 'show_cpu') {
+		$Query = "SELECT model FROM computer INNER JOIN cpu ON computer.cpu = cpu.id WHERE computer.id = $computer_id;";
+	}
+	else if (isset($_POST['show_ram'])) {
+		$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = $computer_id";
+	}
+	else if ($_POST['action'] == 'show_psu') {
+		$Query = "SELECT model FROM computer INNER JOIN psu ON computer.psu = psu.id WHERE computer.id = $computer_id;";
+	}
+	else if ($_POST['action'] == 'show_pc_case') {
+		$Query = "SELECT model FROM computer INNER JOIN pc_case ON computer.pc_case = pc_case.id WHERE computer.id = $computer_id;";
+	}
+	
+	$ExecQuery = mysqli_query($connectionDB, $Query);
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
-<?php 
-	}
-	
 
+<?php 
 if (isset($_POST['update_motherboard'])) {
 	$PostedValue 	= $_POST['update_motherboard'];
 	$Query = "UPDATE computer SET motherboard=$PostedValue WHERE computer.id = $computer_id;";
@@ -65,14 +81,7 @@ if (isset($_POST['search_cpu'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-<?php
-if ($_POST['action'] == 'show_cpu') {
-	$Query = "SELECT model FROM computer INNER JOIN cpu ON computer.cpu = cpu.id WHERE computer.id = $computer_id;";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result[0]; ?>
-<?php }}?> </ul>
+
 <?php 
 if (isset($_POST['update_cpu'])) {
 	$PostedValue 	= $_POST['update_cpu'];
@@ -104,14 +113,6 @@ if (isset($_POST['search_cpu_fan'])) {
 							"<?php echo $ShowAction; ?>")'>
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
-<?php }}?> </ul>
-<?php
-if ($_POST['action'] == 'show_cpu_fan') {
-	$Query = "SELECT model FROM computer INNER JOIN cpu_fan ON computer.cpu_fan = cpu_fan.id WHERE computer.id = $computer_id;";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
 <?php 
 if (isset($_POST['update_cpu_fan'])) {
@@ -145,16 +146,7 @@ if (isset($_POST['search_ram'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?></ul>
-<?php
-if (isset($_POST['show_ram'])) {
-	$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = $computer_id";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='delete_computer_ram("<?php echo $TestValue; ?>", "<?php echo $Result['id']; ?>")'>
-            <a> <?php echo $Result['model']; ?>  </a>
-        </li>
-<?php }}?> </ul>
+
 <?php
 if ($_POST['action'] == 'insert_ram') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");	
@@ -248,14 +240,7 @@ if (isset($_POST['search_psu'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-<?php
-if ($_POST['action'] == 'show_psu') {
-	$Query = "SELECT model FROM computer INNER JOIN psu ON computer.psu = psu.id WHERE computer.id = $computer_id;";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result[0]; ?>
-<?php }}?> </ul>
+
 <?php 
 if (isset($_POST['update_psu'])) {
 	$PostedValue 	= $_POST['update_psu'];
@@ -287,14 +272,7 @@ if (isset($_POST['search_pc_case'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-<?php
-if ($_POST['action'] == 'show_pc_case') {
-	$Query = "SELECT model FROM computer INNER JOIN pc_case ON computer.pc_case = pc_case.id WHERE computer.id = $computer_id;";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
-	echo '<ul>';
-	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result[0]; ?>
-<?php }}?> </ul>
+
 <?php 
 if (isset($_POST['update_pc_case'])) {
 	$PostedValue 	= $_POST['update_pc_case'];
