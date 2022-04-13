@@ -134,7 +134,7 @@ function display_item2(Display, Search_Object) {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: Search_Object+'='+PostedValue,
+            data: {action: Search_Object},
             success: function(response) {
 				$(Display).html(response).show();
         }
