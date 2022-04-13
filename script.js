@@ -31,7 +31,7 @@ function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
         $.ajax({
             type: "POST",
             url: "handler.php",
-            data:{action:'insert_ram', argument_ram_id: ValueId}
+            data:{action:'insert_ram', argument_ram_id: ValueId},
 			success: function(response) {
                     display_item("#test_ram", '#show_ram', "show_ram");
                 }
