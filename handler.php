@@ -146,7 +146,7 @@ if (isset($_POST['show_gpu'])) {
 if ($_POST['action'] == 'insert_gpu') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO gpu_computer (computer_id, gpu_id) VALUES (?, ?)");	
 	$string_arg1 = 1;
-	$string_arg2 = $_POST['argument_gpu_id'];
+	$string_arg2 = 42; //$_POST['argument_gpu_id'];
 	$computer_id = $string_arg1;
 	$gpu_id 	 = intval($string_arg2);
 	mysqli_stmt_bind_pagpu($stmt, "ss", $computer_id, $gpu_id);
