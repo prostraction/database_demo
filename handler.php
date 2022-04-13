@@ -107,6 +107,6 @@ if ($_POST['action'] == 'delete_ram') {
 	$string_arg2 = $_POST['argument_ram_id'];
 	$computer_id = $string_arg1;
 	$ram_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
+	//mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
