@@ -102,7 +102,7 @@ if ($_POST['action'] == 'insert_ram') {
 
 <?php
 if ($_POST['action'] == 'delete_ram') {
-	$PostedValue = intval($connectionDB,$_POST['argument_ram_id']);
+	$PostedValue = intval($_POST['argument_ram_id']);
 	$Query = "DELETE FROM ram_computer WHERE ram_computer.computer_id=1 AND ram_computer.ram_id=$PostedValue;";	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
