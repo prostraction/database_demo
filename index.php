@@ -79,7 +79,7 @@
 	<!----------------------------------------------->
 	<p></p>
 	<form>
-		<button id="check">
+		<button id="check" disabled="disabled">
 			 Проверить совместимость
 		</button>
 	</form>
