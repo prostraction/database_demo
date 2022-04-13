@@ -8,14 +8,20 @@ if (isset($_POST['search_motherboard'])) {
 	$VisibleValue 	= '#value_motherboard';
 	$SearchDisplay	= '#display_motherboard';
 	$SearchTable	= '#search_motherboard';
-    $Query = "SELECT DISTINCT model FROM motherboard WHERE model LIKE '%$PostedValue%' LIMIT 5";
+	$ShowAction		= 'show_motherboard';
+	$Action			= 'update_motherboard';
+    $Query = "SELECT DISTINCT id, model FROM motherboard WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
 	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
+							"<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", 
+							"<?php echo $SearchTable; ?>",
+							"<?php echo $Action; ?>", 
+							"<?php echo $ShowAction; ?>")'>
+            <a> <?php echo $Result['id']; ?>  </a>
         </li>
 <?php }}?> </ul>
 
@@ -26,8 +32,15 @@ if (isset($_POST['show_motherboard'])) {
 	$TestValue = '1';
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <a> <?php echo $Result['model']; ?>  </a>
+?> 	       <?php echo $Result['model']; ?>
 <?php }}?> </ul>
+
+<?php 
+if (isset($_POST['update_motherboard'])) {
+	$PostedValue 	= $_POST['update_motherboard'];
+	$Query = "UPDATE computer SET motherboard=$PostedValue WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+}
 
 
 <?php
