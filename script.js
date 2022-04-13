@@ -1,7 +1,11 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
-	display_item2("#value_motherboard", "show_motherboard");
+	display_item2("#value_cpu", "show_cpu");
+	display_item2("#value_cpu_fun", "show_cpu_fun");
+	display_item2("#value_psu", "show_psu");
+	display_item2("#value_pc_case", "show_pc_case");
+	
 	
 	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
@@ -32,7 +36,6 @@ $(document).ready(function() {
 });
  
 function fill(Key, Value, Display, Search, Action, ShowAction) {
-    //$(Key).text(Value); //////////////////////////////
 	$(Search).val('');
     $(Display).hide();
 	update_display_item(Action, Value, Key, ShowAction);

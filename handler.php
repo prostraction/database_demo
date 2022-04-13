@@ -9,22 +9,20 @@ if (isset($_POST['search_motherboard'])) {
 	$SearchDisplay	= '#display_motherboard';
 	$SearchTable	= '#search_motherboard';
 	$ShowAction		= 'show_motherboard';
-	$Action			= 'update_motherboard';
+	$UpdateAction	= 'update_motherboard';
     $Query = "SELECT DISTINCT id, model FROM motherboard WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
 							"<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", 
 							"<?php echo $SearchTable; ?>",
-							"<?php echo $Action; ?>", 
+							"<?php echo $UpdateAction; ?>", 
 							"<?php echo $ShowAction; ?>")'>
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-
 <?php
 if ($_POST['action'] == 'show_motherboard') {
 	$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = 1;";
@@ -34,7 +32,6 @@ if ($_POST['action'] == 'show_motherboard') {
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
-
 <?php 
 if (isset($_POST['update_motherboard'])) {
 	$PostedValue 	= $_POST['update_motherboard'];
@@ -43,39 +40,84 @@ if (isset($_POST['update_motherboard'])) {
 }?>
 
 
-<?php
+
+<?php 
 if (isset($_POST['search_cpu'])) {
     $PostedValue 	= $_POST['search_cpu'];
 	$VisibleValue 	= '#value_cpu';
 	$SearchDisplay	= '#display_cpu';
 	$SearchTable	= '#search_cpu';
-    $Query = "SELECT DISTINCT model FROM cpu WHERE model LIKE '%$PostedValue%' LIMIT 5";
+	$ShowAction		= 'show_cpu';
+	$UpdateAction	= 'update_cpu';
+    $Query = "SELECT DISTINCT id, model FROM cpu WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
+							"<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", 
+							"<?php echo $SearchTable; ?>",
+							"<?php echo $UpdateAction; ?>", 
+							"<?php echo $ShowAction; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-
 <?php
-if (isset($_POST['search_cpu_fan'])) {
-    $PostedValue 	= $_POST['search_cpu_fan'];
-	$VisibleValue 	= '#value_cpu_fan';
-	$SearchDisplay	= '#display_cpu_fan';
-	$SearchTable	= '#search_cpu_fan';
-    $Query = "SELECT DISTINCT model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
+if ($_POST['action'] == 'show_cpu') {
+	$Query = "SELECT model FROM computer INNER JOIN cpu ON computer.cpu = cpu.id WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '1';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 	       <?php echo $Result[0]; ?>
+<?php }}?> </ul>
+<?php 
+if (isset($_POST['update_cpu'])) {
+	$PostedValue 	= $_POST['update_cpu'];
+	$Query = "UPDATE computer SET cpu=$PostedValue WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+}?>
+
+
+
+
+
+<?php 
+if (isset($_POST['search_cpu_fun'])) {
+    $PostedValue 	= $_POST['search_cpu_fun'];
+	$VisibleValue 	= '#value_cpu_fun';
+	$SearchDisplay	= '#display_cpu_fun';
+	$SearchTable	= '#search_cpu_fun';
+	$ShowAction		= 'show_cpu_fun';
+	$UpdateAction	= 'update_cpu_fun';
+    $Query = "SELECT DISTINCT id, model FROM cpu_fun WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
+							"<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", 
+							"<?php echo $SearchTable; ?>",
+							"<?php echo $UpdateAction; ?>", 
+							"<?php echo $ShowAction; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
+<?php
+if ($_POST['action'] == 'show_cpu_fun') {
+	$Query = "SELECT model FROM computer INNER JOIN cpu_fun ON computer.cpu_fun = cpu_fun.id WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '1';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 	       <?php echo $Result[0]; ?>
+<?php }}?> </ul>
+<?php 
+if (isset($_POST['update_cpu_fun'])) {
+	$PostedValue 	= $_POST['update_cpu_fun'];
+	$Query = "UPDATE computer SET cpu_fun=$PostedValue WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+}?>
 
 
 
@@ -185,37 +227,80 @@ if ($_POST['action'] == 'delete_gpu') {
 }?>
 
 
-<?php
+
+<?php 
 if (isset($_POST['search_psu'])) {
     $PostedValue 	= $_POST['search_psu'];
 	$VisibleValue 	= '#value_psu';
 	$SearchDisplay	= '#display_psu';
 	$SearchTable	= '#search_psu';
-    $Query = "SELECT DISTINCT model FROM psu WHERE model LIKE '%$PostedValue%' LIMIT 5";
+	$ShowAction		= 'show_psu';
+	$UpdateAction	= 'update_psu';
+    $Query = "SELECT DISTINCT id, model FROM psu WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
+							"<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", 
+							"<?php echo $SearchTable; ?>",
+							"<?php echo $UpdateAction; ?>", 
+							"<?php echo $ShowAction; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-
 <?php
+if ($_POST['action'] == 'show_psu') {
+	$Query = "SELECT model FROM computer INNER JOIN psu ON computer.psu = psu.id WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '1';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 	       <?php echo $Result[0]; ?>
+<?php }}?> </ul>
+<?php 
+if (isset($_POST['update_psu'])) {
+	$PostedValue 	= $_POST['update_psu'];
+	$Query = "UPDATE computer SET psu=$PostedValue WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+}?>
+
+
+
+
+<?php 
 if (isset($_POST['search_pc_case'])) {
     $PostedValue 	= $_POST['search_pc_case'];
 	$VisibleValue 	= '#value_pc_case';
 	$SearchDisplay	= '#display_pc_case';
 	$SearchTable	= '#search_pc_case';
-    $Query = "SELECT DISTINCT model FROM pc_case WHERE model LIKE '%$PostedValue%' LIMIT 5";
+	$ShowAction		= 'show_pc_case';
+	$UpdateAction	= 'update_pc_case';
+    $Query = "SELECT DISTINCT id, model FROM pc_case WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
-	
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
-							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
-            <a> <?php echo $Result[0]; ?>  </a>
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
+							"<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", 
+							"<?php echo $SearchTable; ?>",
+							"<?php echo $UpdateAction; ?>", 
+							"<?php echo $ShowAction; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-
+<?php
+if ($_POST['action'] == 'show_pc_case') {
+	$Query = "SELECT model FROM computer INNER JOIN pc_case ON computer.pc_case = pc_case.id WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '1';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 	       <?php echo $Result[0]; ?>
+<?php }}?> </ul>
+<?php 
+if (isset($_POST['update_pc_case'])) {
+	$PostedValue 	= $_POST['update_pc_case'];
+	$Query = "UPDATE computer SET pc_case=$PostedValue WHERE computer.id = 1;";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+}?>
