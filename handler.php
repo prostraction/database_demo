@@ -76,7 +76,16 @@ if (isset($_POST['search_ram'])) {
         </li>
 <?php }}?></ul>
 
-
+<?php
+if (isset($_POST['show_ram'])) {
+	// output selected works only on searching
+	$Query = "SELECT ram.model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '#test_ram';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?>             	<p> <?php echo $Result[0]; ?>  </p>
+<?php }}?></ul>	
 
 <?php
 if ($_POST['action'] == 'ram') {
