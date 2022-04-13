@@ -158,11 +158,11 @@ if (isset($_POST['show_ram'])) {
 <?php
 if ($_POST['action'] == 'insert_ram') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");	
-	$string_arg1 = 1;
+	$string_arg1 = $computer_id;
 	$string_arg2 = $_POST['argument_ram_id'];
-	$computer_id = $string_arg1;
+	$comp_id 	 = $string_arg1;
 	$ram_id 	 = intval($string_arg2);
-	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $ram_id);
+	mysqli_stmt_bind_param($stmt, "ss", $comp_id, $ram_id);
 	mysqli_stmt_execute($stmt);
 }
 ?>
