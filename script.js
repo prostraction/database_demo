@@ -60,7 +60,7 @@ function display_inserted(Display, Search_Object) {
 	$.ajax({
         type: "POST",
         url: "handler.php",
-        data: Search_Object+'=111',
+        data: Search_Object+'='+Search_Object,
         success: function(response) {
         $(Display).html(response).show();
             }
