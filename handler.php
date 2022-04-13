@@ -27,7 +27,7 @@ if (isset($_POST['search_motherboard'])) {
 
 <?php
 if ($_POST['action'] == 'show_motherboard') {
-	$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = 1;";
+	$Query = "SELECT \"TEMP\" FROM computer;"; //"SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '1';
 	echo '<ul>';
