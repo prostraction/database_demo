@@ -10,7 +10,7 @@ $(document).ready(function() {
 	});
 	$("#search_ram").keyup(function() {
 		display_item("#display_ram", '#search_ram', "search_ram");
-		//display_item("#test", '#search_ram', "show_ram");
+		display_item("#test", '#search_ram', "show_ram");
 		// TO DO: copy to autoload
 	});
 });
