@@ -10,6 +10,8 @@ $(document).ready(function() {
 	});
 	$("#search_ram").keyup(function() {
 		display_item("#display_ram", '#search_ram', "search_ram");
+		display_item("#test", '#search_ram', "show_ram");
+		// TO DO: copy to autoload
 	});
 });
  
@@ -17,14 +19,6 @@ function fill(Key, Value, Display, Search) {
     $(Key).text(Value);
 	$(Search).val('');
     $(Display).hide();
-}
-
-function set_text(Key, Value) {
-	$(Key).text(Value);
-}
-
-function aaa(Key, Value) {
-	alert(Value);
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
@@ -36,24 +30,10 @@ function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
         $.ajax({
             type: "POST",
             url: "handler.php",
-            data:{action:'ram', argument_ram_id: ValueId}
+            data:{action:'insert_ram', argument_ram_id: ValueId}
         });
 		alert(ValueId);
 		alert(ValueName);
-    }
-}
-
-function fill_multiple(Key, Value, Display, Search) {
-    $(Key).append("<a>"+Value+"</a>");
-	$(Search).val('');
-    $(Display).hide();
-	var PostedValue = $(Value).val();
-    if (PostedValue !== "") {
-        $.ajax({
-            type: "POST",
-            url: "handler.php",
-            data:{action:'ram', argument_ram:'123'}
-        });
     }
 }
 
