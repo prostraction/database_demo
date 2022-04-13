@@ -90,7 +90,7 @@ if (isset($_POST['search_cpu_fan'])) {
 	$SearchTable	= '#search_cpu_fan';
 	$ShowAction		= 'show_cpu_fan';
 	$UpdateAction	= 'update_cpu_fan';
-    $Query = "SELECT DISTINCT id, model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $Query = "SELECT DISTINCT MIN(id) id, model FROM cpu_fan WHERE model LIKE '%$PostedValue%' GROUP BY model LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
