@@ -36,7 +36,7 @@ function fill(Key, Value, Display, Search, Action, ShowAction) {
 	$(Search).val('');
     $(Display).hide();
 	update_item(Action, Value, Display, Action, Action);
-	display_item(Display, ShowAction, ShowAction);
+	display_item(Key, ShowAction, ShowAction);
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
