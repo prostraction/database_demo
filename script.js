@@ -56,13 +56,13 @@ function display_search(Display, Search, Search_Object) {
 }
 
 function display_inserted(Display, Search_Object) {
-	$(Display).html("");
+	//$(Display).html("");
 	$.ajax({
         type: "POST",
         url: "handler.php",
         data: Search_Object+'='+Search_Object,
         success: function(response) {
-        $(Display).html(response).show();
+				$(Display).html(response).show();
             }
         });
 }
