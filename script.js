@@ -9,7 +9,7 @@ $(document).ready(function() {
 		display_item("#display_cpu_fan", '#search_cpu_fan', "search_cpu_fan");
 	});
 	$("#search_ram").keyup(function() {
-		//display_item("#display_ram", '#search_ram', "search_ram");
+		display_item("#display_ram", '#search_ram', "search_ram");
 		display_item("#test_ram", '#show_ram', "show_ram");
 		// TO DO: copy to autoload
 	});
