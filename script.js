@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	display_item("#test_ram", '#show_ram', "show_ram");
 	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
 	});
@@ -22,7 +23,7 @@ function fill(Key, Value, Display, Search) {
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
-    //display_item("#test", '#search_ram', "show_ram");
+    display_item("#test_ram", '#show_ram', "show_ram");
 	var PostedValue = $(ValueName).val();
 	$(Key).text(ValueName);
 	$(Search).val('');
