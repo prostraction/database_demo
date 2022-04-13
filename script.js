@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
+	display_item("#test_gpu", '#show_gpu', "show_gpu");
 	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
 	});
@@ -15,7 +16,11 @@ $(document).ready(function() {
 		// TO DO: copy to autoload
 	});
 	$("#sata_count").keyup(function() {
-		$(#sata_count).value = "42";
+		//$(#sata_count).value = "42";
+	});
+	$("#search_gpu").keyup(function() {
+		display_item("#display_gpu", '#search_gpu', "search_gpu");
+		display_item("#test_gpu", '#show_gpu', "show_gpu");
 	});
 });
  
@@ -50,6 +55,36 @@ function delete_computer_ram(Key, ValueId) {
             data:{action:'delete_ram', argument_ram_id: ValueId},
 			success: function(response) {
                     display_item("#test_ram", '#show_ram', "show_ram");
+            }
+        });
+    }
+}
+
+function fill_computer_gpu(Key, ValueId, ValueName, Display, Search) {
+	var PostedValue = $(ValueId).val();
+	$(Search).val('');
+    $(Display).hide();
+	if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'insert_gpu', argument_gpu_id: ValueId},
+			success: function(response) {
+                    display_item("#test_gpu", '#show_gpu', "show_gpu");
+            }
+        });
+    }
+}
+
+function delete_computer_gpu(Key, ValueId) {
+	var PostedValue = $(ValueId).val();
+	if (PostedValue !== "") {
+        $.ajax({
+            type: "POST",
+            url: "handler.php",
+            data:{action:'delete_gpu', argument_gpu_id: ValueId},
+			success: function(response) {
+                    display_item("#test_gpu", '#show_gpu', "show_gpu");
             }
         });
     }

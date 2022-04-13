@@ -55,6 +55,7 @@ if (isset($_POST['search_cpu_fan'])) {
 
 
 
+
 <?php
 if (isset($_POST['search_ram'])) {
     $PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['search_ram']);
@@ -107,4 +108,55 @@ if ($_POST['action'] == 'delete_ram') {
 }?>
 
 
+
+<?php
+if (isset($_POST['search_gpu'])) {
+    $PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['search_gpu']);
+	$VisibleValue 	= '#value_gpu';
+	$SearchDisplay	= '#display_gpu';
+	$SearchTable	= '#search_gpu';
+    $Query = "SELECT DISTINCT id, model FROM gpu WHERE model LIKE '%$PostedValue%' LIMIT 5";	
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+    echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+		// failed to escape string by \\/
+		$temp2 = preg_replace('/[\/]+/','-',$Result['model']);
+		$temp2 = preg_replace('/[\.]+/','-',$temp2);
+?> 		<li onclick='fill_computer_gpu("<?php echo $VisibleValue; ?>", 
+								"<?php echo $Result['id']; ?>", 
+								"<?php echo $temp2; ?>", 
+								"<?php echo $SearchDisplay; ?>", 
+								"<?php echo $SearchTable; ?>")'>
+							
+            <a> <?php echo $Result['model']; ?>  </a>
+        </li>
+<?php }}?></ul>
+<?php
+if (isset($_POST['show_gpu'])) {
+	$Query = "SELECT id, model FROM gpu_computer INNER JOIN gpu ON gpu_computer.gpu_id = gpu.id WHERE gpu_computer.computer_id = 1";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
+	$TestValue = '1';
+	echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 		<li onclick='delete_computer_gpu("<?php echo $TestValue; ?>", "<?php echo $Result['id']; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
+        </li>
+<?php }}?> </ul>
+<?php
+if ($_POST['action'] == 'insert_gpu') {
+	$stmt = mysqli_prepare($connectionDB, "INSERT INTO gpu_computer (computer_id, gpu_id) VALUES (?, ?)");	
+	$string_arg1 = 1;
+	$string_arg2 = $_POST['argument_gpu_id'];
+	$computer_id = $string_arg1;
+	$gpu_id 	 = intval($string_arg2);
+	mysqli_stmt_bind_pagpu($stmt, "ss", $computer_id, $gpu_id);
+	mysqli_stmt_execute($stmt);
+}
+?>
+<?php
+if ($_POST['action'] == 'delete_gpu') {
+	$PostedValue = intval($_POST['argument_gpu_id']);
+	$Query = "DELETE FROM gpu_computer WHERE gpu_computer.computer_id=1 AND gpu_computer.gpu_id=$PostedValue;";	
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+}?>
 
