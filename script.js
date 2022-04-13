@@ -14,6 +14,9 @@ $(document).ready(function() {
 		display_item("#test_ram", '#show_ram', "show_ram");
 		// TO DO: copy to autoload
 	});
+	$("#sata_count").keyup(function() {
+		$(#sata_count).value = "42";
+	});
 });
  
 function fill(Key, Value, Display, Search) {
