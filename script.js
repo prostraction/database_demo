@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
+	display_item2("#value_motherboard", "show_motherboard");
 	display_item2("#value_cpu", "show_cpu");
 	display_item2("#value_cpu_fun", "show_cpu_fun");
 	display_item2("#value_psu", "show_psu");
