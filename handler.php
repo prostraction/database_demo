@@ -146,7 +146,7 @@ if (isset($_POST['show_gpu'])) {
 if ($_POST['action'] == 'insert_gpu') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO gpu_computer (computer_id, gpu_id) VALUES (?, ?)");	
 	$string_arg1 = 1;
-	$string_arg2 = 42; //$_POST['argument_gpu_id'];
+	$string_arg2 = $_POST['argument_gpu_id'];
 	$computer_id = $string_arg1;
 	$gpu_id 	 = intval($string_arg2);
 	mysqli_stmt_bind_param($stmt, "ss", $computer_id, $gpu_id);
@@ -159,4 +159,39 @@ if ($_POST['action'] == 'delete_gpu') {
 	$Query = "DELETE FROM gpu_computer WHERE gpu_computer.computer_id=1 AND gpu_computer.gpu_id=$PostedValue;";	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
+
+
+<?php
+if (isset($_POST['search_psu'])) {
+    $PostedValue 	= $_POST['search_psu'];
+	$VisibleValue 	= '#value_psu';
+	$SearchDisplay	= '#display_psu';
+	$SearchTable	= '#search_psu';
+    $Query = "SELECT DISTINCT model FROM psu WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+	
+    echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
+            <a> <?php echo $Result[0]; ?>  </a>
+        </li>
+<?php }}?> </ul>
+
+<?php
+if (isset($_POST['search_pc_case'])) {
+    $PostedValue 	= $_POST['search_pc_case'];
+	$VisibleValue 	= '#value_pc_case';
+	$SearchDisplay	= '#display_pc_case';
+	$SearchTable	= '#search_pc_case';
+    $Query = "SELECT DISTINCT model FROM pc_case WHERE model LIKE '%$PostedValue%' LIMIT 5";
+    $ExecQuery = mysqli_query($connectionDB, $Query);
+	
+    echo '<ul>';
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", "<?php echo $Result[0]; ?>", 
+							"<?php echo $SearchDisplay; ?>", "<?php echo $SearchTable; ?>")'>
+            <a> <?php echo $Result[0]; ?>  </a>
+        </li>
+<?php }}?> </ul>
 

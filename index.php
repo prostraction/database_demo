@@ -71,14 +71,18 @@
 	<!----------------------------------------------->
 	<p> <b>Блок питания (PSU):</b></p>
         <label>
-            <input type="text" id="psu" placeholder="Начните вводить..." />
+			<p> <div id="value_psu"></div> </p>
+            <input type="text" id="search_psu" placeholder="Начните вводить..." />
+			<div id="display_psu"></div>	
         </label>	
     </form>
 	<!----------------------------------------------->
 	<p><b>Корпус: </b></p>
     <form>
         <label>
-            <input type="text" id="pc_case" placeholder="Начните вводить..." />
+			<p> <div id="value_pc_case"></div> </p>
+            <input type="text" id="search_pc_case" placeholder="Начните вводить..." />
+			<div id="display_pc_case"></div>
         </label>	
     </form>
 	<!----------------------------------------------->

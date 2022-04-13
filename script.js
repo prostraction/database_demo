@@ -22,6 +22,12 @@ $(document).ready(function() {
 		display_item("#display_gpu", '#search_gpu', "search_gpu");
 		display_item("#test_gpu", '#show_gpu', "show_gpu");
 	});
+	$("#search_psu").keyup(function() {
+		display_item("#display_psu", '#search_psu', "search_psu");
+	});
+	$("#search_pc_case").keyup(function() {
+		display_item("#display_pc_case", '#search_pc_case', "search_pc_case");
+	});
 });
  
 function fill(Key, Value, Display, Search) {
