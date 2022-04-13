@@ -24,14 +24,18 @@ if (isset($_POST['search_motherboard'])) {
         </li>
 <?php }}?> </ul>
 <?php
-if ($_POST['action'] == 'show_motherboard') {
-	$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $computer_id;";
-	$ExecQuery = mysqli_query($connectionDB, $Query);
+if (strlen($_POST['action']) > 0 ) {
+	if ($_POST['action'] == 'show_motherboard') {
+		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $computer_id;";
+			$ExecQuery = mysqli_query($connectionDB, $Query);
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
 <?php 
+	}
+	
+
 if (isset($_POST['update_motherboard'])) {
 	$PostedValue 	= $_POST['update_motherboard'];
 	$Query = "UPDATE computer SET motherboard=$PostedValue WHERE computer.id = $computer_id;";
