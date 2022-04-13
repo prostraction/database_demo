@@ -22,7 +22,7 @@ function fill(Key, Value, Display, Search) {
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
-    display_inserted("#test_ram", '#show_ram', "show_ram");
+    //display_inserted("#test_ram", '#show_ram', "show_ram");
 	var PostedValue = $(ValueName).val();
 	$(Key).text(ValueName);
 	$(Search).val('');
