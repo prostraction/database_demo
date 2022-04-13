@@ -20,7 +20,7 @@ $(document).ready(function() {
 	});
 	$("#search_gpu").keyup(function() {
 		display_item("#display_gpu", '#search_gpu', "search_gpu");
-		display_item("#test_gpu", '#show_gpu', "show_gpu");
+		//display_item("#test_gpu", '#show_gpu', "show_gpu");
 	});
 	$("#search_psu").keyup(function() {
 		display_item("#display_psu", '#search_psu', "search_psu");
