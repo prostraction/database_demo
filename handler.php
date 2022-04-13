@@ -16,12 +16,12 @@ if (isset($_POST['search_motherboard'])) {
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
 ?> 		<li onclick='fill(	"<?php echo $VisibleValue; ?>", 
-							"<?php echo $Result['id']; ?>", 
+							"<?php echo $Result[0]; ?>", 
 							"<?php echo $SearchDisplay; ?>", 
 							"<?php echo $SearchTable; ?>",
 							"<?php echo $Action; ?>", 
 							"<?php echo $ShowAction; ?>")'>
-            <a> <?php echo $Result['id']; ?>  </a>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
 
@@ -32,7 +32,7 @@ if ($_POST['action'] == 'show_motherboard') {
 	$TestValue = '1';
 	echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
-?> 	       <?php echo $Result[0]; ?>
+?> 	       <?php echo $Result['model']; ?>
 <?php }}?> </ul>
 
 <?php 
