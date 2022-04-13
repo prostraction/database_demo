@@ -78,7 +78,6 @@ if (isset($_POST['search_ram'])) {
 
 <?php
 if (isset($_POST['show_ram'])) {
-	// output selected works only on searching
 	$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '1';
@@ -103,7 +102,7 @@ if ($_POST['action'] == 'insert_ram') {
 
 <?php
 if ($_POST['action'] == 'delete_ram') {
-	$stmt = mysqli_prepare($connectionDB, "DELETE FROM ram_computer WHERE ram_computer.computer_id=? AND ram_computer.ram_id=?");
+	$stmt = mysqli_prepare($connectionDB, "DELETE FROM ram_computer WHERE ram_computer.computer_id=1 AND ram_computer.ram_id=68");
 	$string_arg1 = 1;
 	$string_arg2 = $_POST['argument_ram_id'];
 	$computer_id = $string_arg1;
