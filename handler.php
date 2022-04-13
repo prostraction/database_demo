@@ -88,7 +88,7 @@ if (isset($_POST['show_ram'])) {
 <?php }}?></ul>	
 
 <?php
-if ($_POST['action'] == 'ram') {
+if ($_POST['action'] == 'insert_ram') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");
 	
 	$string_arg1 = 1;
