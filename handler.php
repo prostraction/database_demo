@@ -83,14 +83,14 @@ if (isset($_POST['update_cpu'])) {
 
 
 <?php 
-if (isset($_POST['search_cpu_fun'])) {
-    $PostedValue 	= $_POST['search_cpu_fun'];
-	$VisibleValue 	= '#value_cpu_fun';
-	$SearchDisplay	= '#display_cpu_fun';
-	$SearchTable	= '#search_cpu_fun';
-	$ShowAction		= 'show_cpu_fun';
-	$UpdateAction	= 'update_cpu_fun';
-    $Query = "SELECT DISTINCT id, model FROM cpu_fun WHERE model LIKE '%$PostedValue%' LIMIT 5";
+if (isset($_POST['search_cpu_fan'])) {
+    $PostedValue 	= $_POST['search_cpu_fan'];
+	$VisibleValue 	= '#value_cpu_fan';
+	$SearchDisplay	= '#display_cpu_fan';
+	$SearchTable	= '#search_cpu_fan';
+	$ShowAction		= 'show_cpu_fan';
+	$UpdateAction	= 'update_cpu_fan';
+    $Query = "SELECT DISTINCT id, model FROM cpu_fan WHERE model LIKE '%$PostedValue%' LIMIT 5";
     $ExecQuery = mysqli_query($connectionDB, $Query);
     echo '<ul>';
 	while ($Result = mysqli_fetch_array($ExecQuery)) {
@@ -104,8 +104,8 @@ if (isset($_POST['search_cpu_fun'])) {
         </li>
 <?php }}?> </ul>
 <?php
-if ($_POST['action'] == 'show_cpu_fun') {
-	$Query = "SELECT model FROM computer INNER JOIN cpu_fun ON computer.cpu_fun = cpu_fun.id WHERE computer.id = 1;";
+if ($_POST['action'] == 'show_cpu_fan') {
+	$Query = "SELECT model FROM computer INNER JOIN cpu_fan ON computer.cpu_fan = cpu_fan.id WHERE computer.id = 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '1';
 	echo '<ul>';
@@ -113,9 +113,9 @@ if ($_POST['action'] == 'show_cpu_fun') {
 ?> 	       <?php echo $Result[0]; ?>
 <?php }}?> </ul>
 <?php 
-if (isset($_POST['update_cpu_fun'])) {
-	$PostedValue 	= $_POST['update_cpu_fun'];
-	$Query = "UPDATE computer SET cpu_fun=$PostedValue WHERE computer.id = 1;";
+if (isset($_POST['update_cpu_fan'])) {
+	$PostedValue 	= $_POST['update_cpu_fan'];
+	$Query = "UPDATE computer SET cpu_fan=$PostedValue WHERE computer.id = 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
 
