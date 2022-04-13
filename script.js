@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
+	display_item("#value_motherboard", '#show_motherboard', "show_motherboard");
 	$("#search_motherboard").keyup(function() {
 		display_item("#display_motherboard", '#search_motherboard', "search_motherboard");
 	});
@@ -12,8 +13,7 @@ $(document).ready(function() {
 	});
 	$("#search_ram").keyup(function() {
 		display_item("#display_ram", '#search_ram', "search_ram");
-		display_item("#test_ram", '#show_ram', "show_ram");
-		// TO DO: copy to autoload
+		//display_item("#test_ram", '#show_ram', "show_ram");
 	});
 	$("#sata_count").keyup(function() {
 		//$(#sata_count).value = "42";
@@ -70,7 +70,6 @@ function fill_computer_gpu(Key, ValueId, ValueName, Display, Search) {
 	var PostedValue = $(ValueId).val();
 	$(Search).val('');
     $(Display).hide();
-	alert(ValueId);
 	if (PostedValue !== "") {
         $.ajax({
             type: "POST",
