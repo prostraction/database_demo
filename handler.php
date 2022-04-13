@@ -53,6 +53,8 @@ if (isset($_POST['search_cpu_fan'])) {
         </li>
 <?php }}?> </ul>
 
+
+
 <?php
 if (isset($_POST['search_ram'])) {
     $PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['search_ram']);
@@ -75,7 +77,6 @@ if (isset($_POST['search_ram'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?></ul>
-
 <?php
 if (isset($_POST['show_ram'])) {
 	$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = 1";
@@ -87,7 +88,6 @@ if (isset($_POST['show_ram'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
-
 <?php
 if ($_POST['action'] == 'insert_ram') {
 	$stmt = mysqli_prepare($connectionDB, "INSERT INTO ram_computer (computer_id, ram_id) VALUES (?, ?)");	
@@ -99,10 +99,12 @@ if ($_POST['action'] == 'insert_ram') {
 	mysqli_stmt_execute($stmt);
 }
 ?>
-
 <?php
 if ($_POST['action'] == 'delete_ram') {
 	$PostedValue = intval($_POST['argument_ram_id']);
 	$Query = "DELETE FROM ram_computer WHERE ram_computer.computer_id=1 AND ram_computer.ram_id=$PostedValue;";	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 }?>
+
+
+
