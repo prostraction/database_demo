@@ -74,7 +74,9 @@ if (isset($_POST['search_ram'])) {
 							
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
-<?php }?></ul><?php}?>
+<?php }}?></ul>
+
+
 
 <?php
 if ($_POST['action'] == 'ram') {
