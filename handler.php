@@ -40,7 +40,7 @@ if (isset($_POST['update_motherboard'])) {
 	$PostedValue 	= $_POST['update_motherboard'];
 	$Query = "UPDATE computer SET motherboard=$PostedValue WHERE computer.id = 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
-}
+}?>
 
 
 <?php
