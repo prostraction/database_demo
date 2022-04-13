@@ -64,6 +64,7 @@ function fill_computer_gpu(Key, ValueId, ValueName, Display, Search) {
 	var PostedValue = $(ValueId).val();
 	$(Search).val('');
     $(Display).hide();
+	alert(ValueId);
 	if (PostedValue !== "") {
         $.ajax({
             type: "POST",
