@@ -31,10 +31,10 @@
 	<!----------------------------------------------->
 	<p> <b>Оперативная память (RAM): </b> </p>
     <form>
-		<p> <div id="value_gpu"></div> </p>
-		<p> <div id="test_gpu"></div> </p>
-        <label> <input type="text" id="search_gpu" placeholder="Начните вводить..." /> </label>	
-		<div id="display_gpu"></div>
+		<p> <div id="value_ram"></div> </p>
+		<p> <div id="test_ram"></div> </p>
+        <label> <input type="text" id="search_ram" placeholder="Начните вводить..." /> </label>	
+		<div id="display_ram"></div>
     </form>
 	<form>
 		<button id="add_ram" disabled="disabled">
@@ -58,10 +58,10 @@
 	<!----------------------------------------------->
 	<p> <b>Видеокарта (GPU) </b></p>
     <form>
-        <label>
+		<p> <div id="value_gpu"></div> </p>
 		<p> <div id="test_gpu"></div> </p>
-            <input type="text" id="search_gpu" placeholder="Начните вводить..." />
-        </label>	
+        <label> <input type="text" id="search_gpu" placeholder="Начните вводить..." /> </label>	
+		<div id="display_gpu"></div>	
     </form>
 	<form>
 		<button id="add_ram" disabled="disabled">
