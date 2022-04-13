@@ -123,7 +123,16 @@ if (isset($_POST['update_cpu_fan'])) {
 
 
 
-
+<?php
+if (isset($_post['show_ram'])) {
+	$query = "select id, model from ram_computer inner join ram on ram_computer.ram_id = ram.id where ram_computer.computer_id = $computer_id";
+	$execquery = mysqli_query($connectiondb, $query);
+	echo '<ul>';
+	while ($result = mysqli_fetch_array($execquery)) {
+?> 		<li onclick='delete_computer_ram("<?php echo $testvalue; ?>", "<?php echo $result['id']; ?>")'>
+            <a> <?php echo $result['model']; ?>  </a>
+        </li>
+<?php }}?> </ul>
 <?php
 if (isset($_POST['search_ram'])) {
     $PostedValue 	= mysqli_real_escape_string($connectionDB,$_POST['search_ram']);
