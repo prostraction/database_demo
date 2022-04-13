@@ -37,11 +37,6 @@
         <label> <input type="text" id="search_ram" placeholder="Начните вводить..." /> </label>	
 		<div id="display_ram"></div>
     </form>
-	<form>
-		<button id="add_ram" disabled="disabled">
-			 Добавить планку оперативной памяти
-		</button>
-	</form>
 	<!----------------------------------------------->
 	<p> <b>Накопители информации: </b></p>
 	<form>  
@@ -64,11 +59,6 @@
         <label> <input type="text" id="search_gpu" placeholder="Начните вводить..." /> </label>	
 		<div id="display_gpu"></div>	
     </form>
-	<form>
-		<button id="add_ram" disabled="disabled">
-			 Добавить видеокарту
-		</button>
-	</form>
 	<!----------------------------------------------->
 	<p> <b>Блок питания (PSU):</b></p>
         <label>
