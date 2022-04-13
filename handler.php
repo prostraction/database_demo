@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$computer_id = 1;
+$computer_id = 2;
 
 if (isset($_POST['search_motherboard'])) {
     $PostedValue 	= $_POST['search_motherboard'];
