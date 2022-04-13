@@ -26,7 +26,7 @@ if (isset($_POST['search_motherboard'])) {
 <?php }}?> </ul>
 
 <?php
-if (isset($_POST['show_motherboard'])) {
+if ($_POST['action'] == 'show_motherboard') {
 	$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = 1;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 	$TestValue = '1';
