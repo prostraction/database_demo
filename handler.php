@@ -121,13 +121,13 @@ if (isset($_POST['update_cpu_fan'])) {
 
 
 <?php
-if (isset($_post['show_ram'])) {
-	$query = "select id, model from ram_computer inner join ram on ram_computer.ram_id = ram.id where ram_computer.computer_id = $computer_id";
-	$execquery = mysqli_query($connectiondb, $query);
+if (isset($_POST['show_ram'])) {
+	$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = $computer_id";
+	$ExecQuery = mysqli_query($connectionDB, $Query);
 	echo '<ul>';
-	while ($result = mysqli_fetch_array($execquery)) {
-?> 		<li onclick='delete_computer_ram("<?php echo $testvalue; ?>", "<?php echo $result['id']; ?>")'>
-            <a> <?php echo $result['model']; ?>  </a>
+	while ($Result = mysqli_fetch_array($ExecQuery)) {
+?> 		<li onclick='delete_computer_ram("<?php echo $TestValue; ?>", "<?php echo $Result['id']; ?>")'>
+            <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
 <?php
