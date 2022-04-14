@@ -1,8 +1,8 @@
 <?php
 include "db.php";
 
-global $computer_id;
-global $disk_id;
+$computer_id;
+$disk_id;
 
 //$computer_id = 3;
 //$disk_id = 0;
