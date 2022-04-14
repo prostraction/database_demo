@@ -2,8 +2,8 @@
 include "db.php";
 
 class Data {
-	public static Data::$computer_id = 3;
-	public static Data::$disk_id = 0;
+	public static $computer_id = 3;
+	public static $disk_id = 0;
 }
 
 
