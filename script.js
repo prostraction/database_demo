@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
-	alert("111");
+	//alert("111");
 	display_item2("#value_motherboard", "show_motherboard");
 	display_item2("#value_cpu", "show_cpu");
 	display_item2("#value_cpu_fan", "show_cpu_fan");
@@ -22,7 +22,12 @@ $(document).ready(function() {
 		display_item("#display_ram", '#search_ram', "search_ram");
 		//display_item("#test_ram", '#show_ram', "show_ram");
 	});
-	$("#sata_count").keyup(function() {
+	$("#sata_count").bind('keyup mouseup', function () {
+		
+		alert("sata");//$(#sata_count).value = "42";
+	});
+	$("#m2_count").bind('keyup mouseup', function () {
+		alert("m2");
 		//$(#sata_count).value = "42";
 	});
 	$("#search_gpu").keyup(function() {
