@@ -74,9 +74,8 @@ function insert_new_conf() {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: {configuration: "new_configuration"};
-        }
-    );
+            data: {configuration: "new_configuration"}
+    });
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
