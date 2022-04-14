@@ -6,14 +6,14 @@ $disk_id = 0;
 
 <?php
 if ($_POST['configuration'] == 'new_configuration') {
-	$stmt_disk = mysqli_prepare($connectionDB, "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)");	
-	mysqli_stmt_execute($stmt_disk);
-	$disk_id = $stmt->insert_id;
-	if ($disk_id > 0) {
-		$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES (?)");
-		mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
-		mysqli_stmt_execute($stmt_computer);
-	}
+	#$stmt_disk = mysqli_prepare($connectionDB, "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)");	
+	#mysqli_stmt_execute($stmt_disk);
+	#$disk_id = $stmt->insert_id;
+	#if ($disk_id > 0) {
+	#	$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES (?)");
+	#	mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
+	#	mysqli_stmt_execute($stmt_computer);
+	#}
 }
 ?> 
 
