@@ -6,14 +6,13 @@ $disk_id = 0;
 
 <?php
 if ($_POST['configuration'] == 'new_configuration') {
-	$QueryDisk = "INSERT IGNORE INTO disk (sata_count, m2_count) VALUES (0, 0);";
-    if (mysqli_query($connectionDB, $QueryDisk)) {
-		#$disk_id = mysqli_insert_id($connectionDB);
-		
-		#$QueryComputer = "INSERT IGNORE INTO computer (disk) VALUES ($disk_id);";
-	    #if (mysqli_query($connectionDB, $QueryComputer)) {
-		#	$computer_id = mysqli_insert_id($connectionDB);
-		#}
+	$stmt_disk = mysqli_prepare($connectionDB, "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)");	
+	mysqli_stmt_execute($stmt_disk);
+	$disk_id = $stmt->insert_id;
+	if ($disk_id > 0) {
+		$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES (?)");
+		mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
+		mysqli_stmt_execute($stmt_computer);
 	}
 }
 ?> 
