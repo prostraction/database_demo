@@ -19,8 +19,8 @@ if ($_POST['configuration'] == 'new_configuration') {
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
 		$comp = mysqli_insert_id($connectionDB);
-		$GLOBALS('disk_id') = $disk;
-		$GLOBALS('computer_id') = $comp;
+		$GLOBALS("disk_id") = $disk;
+		$GLOBALS("computer_id") = $comp;
 	//}
 }
 ?> 
