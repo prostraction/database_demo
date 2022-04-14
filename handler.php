@@ -23,7 +23,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
 		$comp = mysqli_insert_id($connectionDB);
-		assign_global($computer_id, $comp);
+		assign_global($computer_id, 23);
 		//$GLOBALS("disk_id") = $disk;
 		//$GLOBALS("computer_id") = 23; //$comp;
 	//}
