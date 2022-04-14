@@ -4,8 +4,8 @@ include "db.php";
 global $computer_id;
 global $disk_id;
 
-$computer_id = 3;
-$disk_id = 0;
+//$computer_id = 3;
+//$disk_id = 0;
 
 
 if ($_POST['configuration'] == 'new_configuration') {
