@@ -11,8 +11,8 @@ if ($_POST['configuration'] == 'new_configuration') {
 	mysqli_stmt_execute($stmt_disk);
 	$disk_id = mysqli_insert_id($connectionDB);
 	if ($disk_id > 0) {
-		$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES (?)");
-		mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
+		$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES ($disk_id)");
+		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		mysqli_stmt_execute($stmt_computer);
 		$computer_id = mysqli_insert_id($connectionDB);
 	}
