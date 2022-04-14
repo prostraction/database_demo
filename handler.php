@@ -4,6 +4,10 @@ include "db.php";
 $computer_id = 3;
 $disk_id = 0;
 
+function assign_global(&$data, $value) {
+	$data = $value;
+}
+
 if ($_POST['configuration'] == 'new_configuration') {
 	//global $computer_id;
 	//global $disk_id;
@@ -19,8 +23,9 @@ if ($_POST['configuration'] == 'new_configuration') {
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
 		$comp = mysqli_insert_id($connectionDB);
+		assign_global($computer_id, $comp);
 		//$GLOBALS("disk_id") = $disk;
-		$GLOBALS("computer_id") = 23; //$comp;
+		//$GLOBALS("computer_id") = 23; //$comp;
 	//}
 }
 ?> 
