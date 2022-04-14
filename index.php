@@ -42,11 +42,11 @@
 	<form>  
         <label>Количество жестких дисков и SSD накопителей: </label>
 		<div>
-			<input type="number" name="sata_count" min="0" max="50" value="0">
+			<input type="number" id="sata_count" min="0" max="50" value="0">
 			<div>
 				<label>Количество M.2 накопителей: </label>  
 				<div>
-					<input type="number" name="m2_count" min="0" max="50" value="0"> 
+					<input type="number" id="m2_count" min="0" max="50" value="0"> 
 				</div>
 			</div>
 		</div>
