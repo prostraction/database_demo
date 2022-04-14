@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$var_test = 3;
+static $var_test = 3;
 $computer_id = 23;
 $disk_id = 0;
 
