@@ -15,6 +15,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 		$computer_id = mysqli_insert_id($connectionDB);
 	}
 }
+?> 
 
 if (isset($_POST['search_motherboard'])) {
 	$PostedValue 	= $_POST['search_motherboard'];
