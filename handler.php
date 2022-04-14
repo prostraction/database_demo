@@ -77,7 +77,6 @@ if (isset($_POST['update_motherboard'])) {
 	$Query = "UPDATE computer SET motherboard=$PostedValue WHERE computer.id = $computer_id;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }
- 
 if (isset($_POST['search_cpu'])) {
     $PostedValue 	= $_POST['search_cpu'];
 	$VisibleValue 	= '#value_cpu';
@@ -104,7 +103,7 @@ if (isset($_POST['update_cpu'])) {
 	$PostedValue 	= $_POST['update_cpu'];
 	$Query = "UPDATE computer SET cpu=$PostedValue WHERE computer.id = $computer_id;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
-
+}
 if (isset($_POST['search_cpu_fan'])) {
     $PostedValue 	= $_POST['search_cpu_fan'];
 	$VisibleValue 	= '#value_cpu_fan';
@@ -131,7 +130,6 @@ if (isset($_POST['update_cpu_fan'])) {
 	$Query = "UPDATE computer SET cpu_fan=$PostedValue WHERE computer.id = $computer_id;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }
-
 if (isset($_POST['show_ram'])) {
 	$Query = "SELECT id, model FROM ram_computer INNER JOIN ram ON ram_computer.ram_id = ram.id WHERE ram_computer.computer_id = $computer_id";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
@@ -202,7 +200,6 @@ if (isset($_POST['search_gpu'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?></ul>
-
 <?php
 if (isset($_POST['show_gpu'])) {
 	$Query = "SELECT id, model FROM gpu_computer INNER JOIN gpu ON gpu_computer.gpu_id = gpu.id WHERE gpu_computer.computer_id = $computer_id";
@@ -229,7 +226,6 @@ if ($_POST['action'] == 'delete_gpu') {
 	$Query = "DELETE FROM gpu_computer WHERE gpu_computer.computer_id=$computer_id AND gpu_computer.gpu_id=$PostedValue;";	
     $ExecQuery = mysqli_query($connectionDB, $Query);
 }
-
 if (isset($_POST['search_psu'])) {
     $PostedValue 	= $_POST['search_psu'];
 	$VisibleValue 	= '#value_psu';
@@ -257,7 +253,6 @@ if (isset($_POST['update_psu'])) {
 	$Query = "UPDATE computer SET psu=$PostedValue WHERE computer.id = $computer_id;";
 	$ExecQuery = mysqli_query($connectionDB, $Query);
 }
- 
 if (isset($_POST['search_pc_case'])) {
     $PostedValue 	= $_POST['search_pc_case'];
 	$VisibleValue 	= '#value_pc_case';
