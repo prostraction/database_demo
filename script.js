@@ -75,7 +75,7 @@ function insert_new_conf() {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: {configuration: "new_configuration"}
+            data: {'configuration'+'='+'new_configuration'}
     });
 }
 

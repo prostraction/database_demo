@@ -9,10 +9,11 @@ if ($_POST['configuration'] == 'new_configuration') {
 	$QueryDisk = "INSERT IGNORE INTO disk (sata_count, m2_count) VALUES (0, 0);";
     if (mysqli_query($connectionDB, $QueryDisk)) {
 		$disk_id = mysqli_insert_id($connectionDB);
-	}
-	$QueryComputer = "INSERT IGNORE INTO computer (disk) VALUES ($disk_id);";
+		
+		$QueryComputer = "INSERT IGNORE INTO computer (disk) VALUES ($disk_id);";
 	    if (mysqli_query($connectionDB, $QueryComputer)) {
-		$computer_id = mysqli_insert_id($connectionDB);
+			$computer_id = mysqli_insert_id($connectionDB);
+		}
 	}
 }
 ?> 
