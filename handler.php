@@ -36,6 +36,8 @@ if ($_POST['configuration'] == 'new_configuration') {
 }
 
 if (isset($_POST['search_motherboard'])) {
+	$foo->var_test = 23;
+	
 	$PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
 	$SearchDisplay	= '#display_motherboard';
@@ -59,7 +61,6 @@ if (isset($_POST['search_motherboard'])) {
 <?php
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
-	$foo->var_test = 23;
 	if ($_POST['action'] == 'show_motherboard') {
 		$test = $foo->var_test;
 		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $test;";
