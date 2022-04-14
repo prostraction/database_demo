@@ -3,6 +3,8 @@ $(document).ready(function() {
 	var M2Count = 0;
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
+	
+	
 	//alert("111");
 	display_item2("#value_motherboard", "show_motherboard");
 	display_item2("#value_cpu", "show_cpu");
@@ -67,6 +69,15 @@ function update_display_item(Action, ValueId, Key, ShowAction) {
             }
         });
     }
+}
+
+function insert_new_conf() {
+	$.ajax({
+            type: "POST",
+            url: "handler.php",
+            data: {configuration: "new_configuration"};
+        }
+    });
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {

@@ -1,10 +1,23 @@
 <?php
 include "db.php";
 
-$computer_id = 2;
+$computer_id = 0;
+$disk_id = 0;
+
+<?php
+if ($_POST['configuration'] == 'new_configuration') {
+	$QueryDisk = "INSERT IGNORE INTO disk (sata_count, m2_count) VALUES (0, 0);";
+    if (mysqli_query($connectionDB, $QueryDisk)) {
+		$disk_id = mysqli_insert_id($connectionDB);
+	}
+	$QueryComputer = "INSERT IGNORE INTO computer (disk) VALUES ($disk_id);";
+	    if (mysqli_query($connectionDB, $QueryComputer)) {
+		$computer_id = mysqli_insert_id($connectionDB);
+	}
+}
 
 if (isset($_POST['search_motherboard'])) {
-    $PostedValue 	= $_POST['search_motherboard'];
+	$PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
 	$SearchDisplay	= '#display_motherboard';
 	$SearchTable	= '#search_motherboard';
