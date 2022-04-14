@@ -75,7 +75,7 @@ function insert_new_conf() {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: {action+'='+"show_motherboard"},
+            data: {action: 'show_motherboard'},
 			success: function(response) {
                     alert("success");
             }
