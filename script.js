@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	var SataCount = 0;
+	var M2Count = 0;
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
 	//alert("111");
@@ -23,8 +25,10 @@ $(document).ready(function() {
 		//display_item("#test_ram", '#show_ram', "show_ram");
 	});
 	$("#sata_count").bind('keyup mouseup', function () {
+		if ($(#sata_count).value > 0 && $(#sata_count).value != SataCount) {
+			alert("sata");//$(#sata_count).value = "42";
+		}
 		
-		alert("sata");//$(#sata_count).value = "42";
 	});
 	$("#m2_count").bind('keyup mouseup', function () {
 		alert("m2");
