@@ -1,11 +1,10 @@
 $(document).ready(function() {
 	var SataCount = 0;
 	var M2Count = 0;
+	insert_new_conf();
+	
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
-	
-	
-	//alert("111");
 	display_item2("#value_motherboard", "show_motherboard");
 	display_item2("#value_cpu", "show_cpu");
 	display_item2("#value_cpu_fan", "show_cpu_fan");
