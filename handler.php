@@ -60,7 +60,8 @@ if (isset($_POST['search_motherboard'])) {
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
 	if ($_POST['action'] == 'show_motherboard') {
-		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $foo->$var_test;";
+		$test = $foo->$var_test;
+		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $test;";
 	}
 	else if ($_POST['action'] == 'show_cpu_fan') {
 		$Query = "SELECT model FROM computer INNER JOIN cpu_fan ON computer.cpu_fan = cpu_fan.id WHERE computer.id = $computer_id;";
