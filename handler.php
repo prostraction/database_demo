@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$computer_id = 0;
+$computer_id = 3;
 $disk_id = 0;
 ?>
 
