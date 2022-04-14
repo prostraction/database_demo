@@ -9,8 +9,8 @@ $disk_id;
 
 
 if ($_POST['configuration'] == 'new_configuration') {
-	global $computer_id;
-	global $disk_id;
+	//global $computer_id;
+	//global $disk_id;
 	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)";
     $ExecQuery = mysqli_query($connectionDB, $QueryDisk);
 	$disk = mysqli_insert_id($connectionDB);
