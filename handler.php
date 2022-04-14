@@ -1,8 +1,8 @@
 <?php
 include "db.php";
 
-$computer_id = 3;
-$disk_id = 0;
+//$computer_id = 3;
+//$disk_id = 0;
 
 if ($_POST['configuration'] == 'new_configuration') {
 	global $computer_id;
@@ -19,8 +19,8 @@ if ($_POST['configuration'] == 'new_configuration') {
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
 		$comp = mysqli_insert_id($connectionDB);
-		$disk_id = $disk;
-		$computer_id = $comp;
+		$GLOBALS('disk_id') = $disk;
+		$GLOBALS('computer_id') = $comp;
 	//}
 }
 ?> 
