@@ -1,7 +1,8 @@
 $(document).ready(function() {
 	var SataCount = 0;
 	var M2Count = 0;
-	insert_new_conf();
+	insert_new_conf("disk");
+	insert_new_conf("computer");
 	alert("111");
 	
 	display_item("#test_ram", '#show_ram', "show_ram");
@@ -71,11 +72,11 @@ function update_display_item(Action, ValueId, Key, ShowAction) {
     }
 }
 
-function insert_new_conf() {
+function insert_new_conf(Action) {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: {configuration: 'new_configuration'}
+            data: {configuration: Action}
     });
 }
 
