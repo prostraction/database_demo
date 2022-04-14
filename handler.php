@@ -1,32 +1,14 @@
 <?php
 include "db.php";
 
-//static $var_test = 3;
 $computer_id = 23;
-$disk_id = 0;
-
-class Foo {
-    public $var_test = 3;
-	function set_var($testvar) {
-		 $this->var_test = $testvar; 
-	}
-	function temp() {
-		$Query = "UPDATE disk SET sata_count = $this->var_test WHERE id = 11";
-		$ExecQuery = mysqli_query($connectionDB, $Query);
-	}
-}
-
-$foo = new Foo;
-
+$disk_id = 29;
 
 if ($_POST['configuration'] == 'new_configuration') {
-	//global $var_test;
-	$foo->set_var(23);
-	//$foo->var_test = 23;
+	global $var_test;
 	global $computer_id;
 	global $disk_id;
-	//$var_test = 23;
-	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (2, 2)";
+	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)";
     $ExecQuery = mysqli_query($connectionDB, $QueryDisk);
 	$disk = mysqli_insert_id($connectionDB);
 	//if ($disk_id > 0) {
@@ -68,9 +50,7 @@ if (isset($_POST['search_motherboard'])) {
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
 	if ($_POST['action'] == 'show_motherboard') {
-		$foo->test();
-		$test = $foo->var_test;
-		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $test;";
+		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $computer_id;";
 	}
 	else if ($_POST['action'] == 'show_cpu_fan') {
 		$Query = "SELECT model FROM computer INNER JOIN cpu_fan ON computer.cpu_fan = cpu_fan.id WHERE computer.id = $computer_id;";
