@@ -7,6 +7,13 @@ $disk_id = 0;
 
 class Foo {
     public $var_test = 3;
+	function set_var($testvar) {
+		 $this->var_test = $testvar; 
+	}
+	function temp() {
+		$Query = "UPDATE disk SET sata_count = $this->var_test WHERE id = 11";
+		$ExecQuery = mysqli_query($connectionDB, $QueryComputer);
+	}
 }
 
 $foo = new Foo;
@@ -14,7 +21,8 @@ $foo = new Foo;
 
 if ($_POST['configuration'] == 'new_configuration') {
 	//global $var_test;
-	$foo->var_test = 23;
+	$foo->set_var(23);
+	//$foo->var_test = 23;
 	global $computer_id;
 	global $disk_id;
 	//$var_test = 23;
@@ -36,8 +44,6 @@ if ($_POST['configuration'] == 'new_configuration') {
 }
 
 if (isset($_POST['search_motherboard'])) {
-	$foo->var_test = 23;
-	
 	$PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
 	$SearchDisplay	= '#display_motherboard';
@@ -62,6 +68,7 @@ if (isset($_POST['search_motherboard'])) {
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
 	if ($_POST['action'] == 'show_motherboard') {
+		$foo->test();
 		$test = $foo->var_test;
 		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $test;";
 	}
