@@ -72,7 +72,8 @@ function update_display_item(Action, ValueId, Key, ShowAction) {
 }
 
 function insert_new_conf() {
-	$.ajax({
+	alert("WTF");
+	/*$.ajax({
             type: "POST",
             url: "handler.php",
             data: {action: 'show_motherboard'},
@@ -80,6 +81,7 @@ function insert_new_conf() {
                     alert("success");
             }
     });
+	*/
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
