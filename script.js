@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var SataCount = 0;
 	var M2Count = 0;
-	insert_new_conf();
+	//insert_new_conf();
 	alert("111");
 	
 	display_item("#test_ram", '#show_ram', "show_ram");
