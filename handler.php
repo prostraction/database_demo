@@ -7,20 +7,17 @@ $disk_id = 0;
 
 <?php
 if ($_POST['configuration'] == 'new_configuration') {
-	mysqli_begin_transaction($connectionDB);
 	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)";
     $ExecQuery = mysqli_query($connectionDB, $QueryDisk);
-	mysqli_commit($connectionDB);
-	$disk_id = mysqli_insert_id($connectionDB)
+	$GLOBALS['disk_id'] = mysqli_insert_id($connectionDB);
 	if ($disk_id > 0) {
-		mysqli_begin_transaction($connectionDB);
+		
 		$QueryComputer = "INSERT INTO computer (disk) VALUES ($disk_id)";
 		$ExecQuery = mysqli_query($connectionDB, $QueryComputer);
-		mysqli_commit($connectionDB);
 		//$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES ($disk_id)");
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
-		$computer_id = mysqli_insert_id($connectionDB);
+		$GLOBALS['computer_id'] = mysqli_insert_id($connectionDB);
 	}
 }
 ?> 
