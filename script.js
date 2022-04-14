@@ -1,6 +1,8 @@
+var SataCount = 0;
+var M2Count = 0;
+
 $(document).ready(function() {
-	var SataCount = 0;
-	var M2Count = 0;
+
 	display_item("#test_ram", '#show_ram', "show_ram");
 	display_item("#test_gpu", '#show_gpu', "show_gpu");
 	//alert("111");
