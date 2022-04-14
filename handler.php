@@ -59,6 +59,7 @@ if (isset($_POST['search_motherboard'])) {
 <?php
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
+	$foo->var_test = 23;
 	if ($_POST['action'] == 'show_motherboard') {
 		$test = $foo->var_test;
 		$Query = "SELECT model FROM computer INNER JOIN motherboard ON computer.motherboard = motherboard.id WHERE computer.id = $test;";
