@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$computer_id = 1;
+$computer_id = 0;
 $disk_id = 0;
 ?>
 
@@ -14,6 +14,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 		$stmt_computer = mysqli_prepare($connectionDB, "INSERT INTO computer (disk) VALUES (?)");
 		mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		mysqli_stmt_execute($stmt_computer);
+		$computer_id = mysqli_insert_id($connectionDB);
 	}
 }
 ?> 
