@@ -1,8 +1,8 @@
 <?php
 include "db.php";
 
-global  $computer_id = 3;
-global  $disk_id = 0;
+$computer_id = 3;
+$disk_id = 0;
 ?>
 
 <?php
@@ -12,7 +12,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)";
     $ExecQuery = mysqli_query($connectionDB, $QueryDisk);
 	$disk_id = mysqli_insert_id($connectionDB);
-	if ($disk_id > 0) {
+	//if ($disk_id > 0) {
 		
 		$QueryComputer = "INSERT INTO computer (disk) VALUES ($disk_id)";
 		$ExecQuery = mysqli_query($connectionDB, $QueryComputer);
@@ -20,7 +20,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 		//mysqli_stmt_bind_param($stmt_computer, "s", $disk_id);
 		//mysqli_stmt_execute($stmt_computer);
 		$computer_id = mysqli_insert_id($connectionDB);
-	}
+	//}
 }
 ?> 
 <?php
