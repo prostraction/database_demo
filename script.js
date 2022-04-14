@@ -75,7 +75,10 @@ function insert_new_conf() {
 	$.ajax({
             type: "POST",
             url: "handler.php",
-            data: "configuration"+'='+"new_configuration"
+            data: "action"+'='+"show_motherboard",
+			success: function(response) {
+                    alert("success");
+            }
     });
 }
 
