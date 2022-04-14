@@ -1,8 +1,9 @@
 <?php
 include "db.php";
 
-$computer_id = 0;
+$computer_id = 1;
 $disk_id = 0;
+?>
 
 <?php
 if ($_POST['configuration'] == 'new_configuration') {
@@ -17,7 +18,7 @@ if ($_POST['configuration'] == 'new_configuration') {
 	echo 1;
 }
 ?> 
-
+<?php
 if (isset($_POST['search_motherboard'])) {
 	$PostedValue 	= $_POST['search_motherboard'];
 	$VisibleValue 	= '#value_motherboard';
