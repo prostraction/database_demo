@@ -27,7 +27,7 @@ $(document).ready(function() {
 	$("#sata_count").bind('keyup mouseup', function () {
 		if ($(sata_count).val() > 0 && $(sata_count).value != SataCount) {
 			SataCount = $(sata_count).val();
-			alert(SataCount);
+			alert($(sata_count).value != SataCount);
 		}
 		
 	});
