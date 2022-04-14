@@ -1,6 +1,9 @@
 <?php
 include "db.php";
 
+$computer_id = 23;
+$disk_id = 0;
+
 if ($_POST['configuration'] == 'new_configuration') {
 	global $computer_id;
 	global $disk_id;
@@ -41,6 +44,7 @@ if (isset($_POST['search_motherboard'])) {
             <a> <?php echo $Result['model']; ?>  </a>
         </li>
 <?php }}?> </ul>
+
 <?php
 if (strlen($_POST['action']) > 0 ) {
 	$Query = "";
