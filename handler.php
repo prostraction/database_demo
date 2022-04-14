@@ -12,7 +12,7 @@ class Foo {
 	}
 	function temp() {
 		$Query = "UPDATE disk SET sata_count = $this->var_test WHERE id = 11";
-		$ExecQuery = mysqli_query($connectionDB, $QueryComputer);
+		$ExecQuery = mysqli_query($connectionDB, $Query);
 	}
 }
 
