@@ -12,14 +12,14 @@ function get_disk() {
 	$QueryDisk = "INSERT INTO disk (sata_count, m2_count) VALUES (0, 0)";
     $ExecQuery = mysqli_query($connectionDB, $QueryDisk);
 	$disk = mysqli_insert_id($connectionDB);
-	return disk;
+	return $disk;
 }
 
 function get_computer() {
 	$QueryComputer = "INSERT INTO computer (disk) VALUES ($disk)";
 	$ExecQuery = mysqli_query($connectionDB, $QueryComputer);
 	$comp = mysqli_insert_id($connectionDB);
-	return computer;
+	return $comp;
 }
 
 if ($_POST['configuration'] == 'new_configuration') {
