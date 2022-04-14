@@ -27,7 +27,7 @@ $(document).ready(function() {
 		//display_item("#test_ram", '#show_ram', "show_ram");
 	});
 	$("#sata_count").bind('keyup mouseup', function () {
-		if ($(#sata_count).val() > 0){// && $(#sata_count).value !== SataCount) {
+		if ($(sata_count).val() > 0){// && $(#sata_count).value !== SataCount) {
 			alert("sata");//$(#sata_count).value = "42";
 		}
 		
