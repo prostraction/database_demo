@@ -76,7 +76,7 @@ function insert_new_conf() {
             url: "handler.php",
             data: {configuration: "new_configuration"};
         }
-    });
+    );
 }
 
 function fill_computer_ram(Key, ValueId, ValueName, Display, Search) {
